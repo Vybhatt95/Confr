@@ -7,3 +7,7 @@ app.config(function($routeProvider) {
     })
 
 });
+
+app.controller("baseCtrl", function($scope){
+
+});
