@@ -1,0 +1,27 @@
+$color1: #44813E;
+$color2: #92C24C;
+$color3: #FFFADD;
+$color4: #FFEEA8;
+$color5: #FCD949;
+body {
+    background-color: $color1;
+}
+
+#header {
+    background-color: $color2;
+}
+
+#LoginPanel{
+    margin-top: 10%;
+    background-color: $color3;
+    width: 50%;
+
+    md-toolbar {
+        background-color: $color5;
+        color: #000000;
+    }
+    
+    #submission {
+        background-color: $color5;
+    }
+}

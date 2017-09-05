@@ -1,0 +1,34 @@
+<body>
+    <div class="container" id="LoginPage" layout="column" layout-align="space-between center">
+        <md-toolbar id="Header">
+            <h1><span>CONFR</span></h1>
+        </md-toolbar>
+        <md-card id="LoginPanel">
+            <md-toolbar layout="row" layout-align="center">
+                <div>
+                    <h3><span>Login</span></h3>
+                </div>
+            </md-toolbar>
+            <form ng-submit="$ctrl.login()" layout="column" layout-align="center center" name="LoginForm">
+                <md-input-container >
+                    <label>Username</label>
+                    <input type="text" ng-model="$ctrl.username" name="username" required>
+                    <div ng-messages="LoginForm.username.$error">
+                        <div ng-message="required">This is required</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" ng-model="$ctrl.password" name="password" required>
+                    <div ng-messages="LoginForm.password.$error">
+                            <div ng-message="required">This is required</div>
+                    </div>
+                </md-input-container>
+                <md-button type="submit" class="md-raised" id="submission">
+                    Login
+                </md-button>
+                <span>New to CONFR? Register <a href="http://www.google.com">here</a></span>
+            </form>
+        </md-card>
+    </div>
+</body>
