@@ -1,0 +1,15 @@
+body {
+  background-color: #44813E; }
+
+#header {
+  background-color: #92C24C; }
+
+#LoginPanel {
+  margin-top: 10%;
+  background-color: #FFFADD;
+  width: 50%; }
+  #LoginPanel md-toolbar {
+    background-color: #FCD949;
+    color: #000000; }
+  #LoginPanel #submission {
+    background-color: #FCD949; }
