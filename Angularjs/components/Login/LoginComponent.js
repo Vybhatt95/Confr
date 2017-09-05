@@ -7,15 +7,21 @@ app.component('login', {
 
 function LoginController() {
     var ctrl = this;
-    ctrl.message = "Controller";
 
-    ctrl.$onInit = function() {
-        console.log("something");
-    }
-
-    ctrl.login = function() {
+    ctrl.login = function($http) {
         ctrl.credentials = {
-            
+            username: ctrl.username,
+            password: ctrl.password
+        }
+
+        $http({
+            url: '',
+            method: 'Post',
+            data: JSON.stringify(ctrl.credentials)
+        }).then(function(response) {
+
+        }), function(response) {
+
         }
     }
 }
