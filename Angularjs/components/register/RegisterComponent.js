@@ -2,7 +2,7 @@ var app = angular.module('app');
 
 app.component('register',{ 
     
-        template: '../views/register.html',
+        template: 'register.html',
         controller: RegisterController
 })
 
