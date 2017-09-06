@@ -40,4 +40,9 @@ $color5: #FCD949;
     #submission {
         background-color: $color5;
     }
+
+    /* unvisited link */
+    a:link {
+    color: $color2;
+    }
 }
