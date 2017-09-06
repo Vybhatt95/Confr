@@ -1,15 +1,29 @@
-body {
-  background-color: #44813E; }
+#LoginPage {
+  width: 100%;
+  height: 100%;
+  background-color: #44813E;
+  background-image: url(http://technologyadvice.com/wp-content/uploads/2015/02/compare-crms-like-a-pro-01.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply; }
 
-#header {
-  background-color: #92C24C; }
+#Header {
+  background: linear-gradient(to right, #92C24C, #FFEEA8);
+  font-family: 'Allerta Stencil', sans-serif; }
+  #Header h1 {
+    color: #FFFADD;
+    font-size: 87px;
+    margin: 0; }
 
 #LoginPanel {
   margin-top: 10%;
   background-color: #FFFADD;
-  width: 50%; }
+  width: 50%;
+  border-radius: 25px; }
   #LoginPanel md-toolbar {
     background-color: #FCD949;
-    color: #000000; }
+    color: #000000;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px; }
   #LoginPanel #submission {
     background-color: #FCD949; }
