@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="app.css/home.css">
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+ <md-toolbar layout="row">
+  <div class="md-toolbar-tools">
+       <h2>
+         <span>Settings</span>
+       </h2>
+       <span flex></span>
+       <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="$ctrl.closeSideNavPanel()">
+         <md-tooltip>Close Side Panel</md-tooltip>
+         <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+       </md-button>
+      </div>
+ </md-toolbar>
+ <md-content layout-padding="">
+ <md-list>
+   <md-subheader class="md-no-sticky">Favorites</md-subheader>
+   <md-list-item>
+     <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
+     <p>Messages</p>
+     <div class="md-secondary">2</div>
+   </md-list-item>
+
+
+  </md-list>
+ </md-content>
+</md-sidenav>
+
+
+<md-toolbar class="desktop" id="header" >
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button"  ng-click="$ctrl.openSideNavPanel()">
+        <md-tooltip>Side Panel</md-tooltip>
+        <md-icon class="md-default-theme" class="material-icons">&#xE5D2</md-icon>
+      </md-button>
+
+      <h2>
+        <span>Confr</span>
+      </h2>
+
+    <div class="navbar" id="navbarpadding">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+
+         <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1">
+          <i class="material-icons">home</i>
+         </md-nav-item>
+
+         <md-nav-item md-nav-click="$ctrl.goto('page2')" name="page2">
+           <i class="material-icons">create</i>
+         </md-nav-item>
+
+         <md-nav-item md-nav-click="$ctrl.goto('page3')" name="page3">
+           <i class="material-icons">graphic_eq</i>
+         </md-nav-item>
+         <md-nav-item md-nav-click="$ctrl.goto('page4')" name="page4">
+          <i class="material-icons">search</i>
+         </md-nav-item>
+
+        </md-nav-bar>
+    </div>
+    </div>
+   </md-toolbar>

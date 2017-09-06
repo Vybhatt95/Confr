@@ -10,6 +10,7 @@ function LoginController() {
 
     ctrl.login = function($http) {
         ctrl.credentials = {
+<<<<<<< HEAD
             username: ctrl.username,
             password: ctrl.password
         }
@@ -21,6 +22,8 @@ function LoginController() {
         }).then(function(response) {
 
         }), function(response) {
+=======
+>>>>>>> vishal_bhatt_main_menu
 
         }
     }
