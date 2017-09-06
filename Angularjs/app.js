@@ -1,9 +1,15 @@
-var app = angular.module('app', ['ngMaterial','ngRoute']);
+var app = angular.module('app', ['ngMaterial','ngRoute', 'ngMessages']);
 
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "views/signin.html"
+        template: '<login></login>'
+    })
+    .when("/home",{
+        template: '<home></home>'
+    })
+    .when("/register",{
+        template: '<register></register>'
     })
 
 });
