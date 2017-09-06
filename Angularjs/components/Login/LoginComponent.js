@@ -15,7 +15,7 @@ function LoginController() {
 
     ctrl.login = function() {
         ctrl.credentials = {
-            
+
         }
     }
 }

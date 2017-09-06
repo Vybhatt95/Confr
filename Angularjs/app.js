@@ -5,5 +5,8 @@ app.config(function($routeProvider) {
     .when("/", {
         template: '<login></login>'
     })
+    .when("/home",{
+        template: '<home></home>'
+    })
 
 });
