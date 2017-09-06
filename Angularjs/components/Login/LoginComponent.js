@@ -8,7 +8,8 @@ app.component('login', {
 function LoginController() {
     var ctrl = this;
 
-    ctrl.login = function($http) {
+    ctrl.message = "";
+    ctrl.login = function($http, UserService) {
         ctrl.credentials = {
             username: ctrl.username,
             password: ctrl.password
@@ -19,9 +20,10 @@ function LoginController() {
             method: 'Post',
             data: JSON.stringify(ctrl.credentials)
         }).then(function(response) {
-
+            ctrl.message = response.data;
         }), function(response) {
-
+            ctrl.message = response.data;
         }
     }
+
 }

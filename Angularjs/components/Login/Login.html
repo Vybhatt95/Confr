@@ -1,3 +1,4 @@
+<script src="https://apis.google.com/js/platform.js"></script>
 <div class="container" id="LoginPage" layout="column" layout-align = "top center">
     <md-toolbar id="Header">
         <h1><span>CONFR</span></h1>
@@ -23,9 +24,13 @@
                         <div ng-message="required">This is required</div>
                 </div>
             </md-input-container>
+            <div>
+                {{message}}
+            </div>
             <md-button type="submit" class="md-raised" id="submission">
                 Login
             </md-button>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>            
             <span>New to CONFR? Register <a href="http://www.google.com">here</a></span>
         </form>
     </md-card>
