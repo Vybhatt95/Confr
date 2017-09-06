@@ -8,5 +8,4 @@ app.config(function($routeProvider) {
     .when("/home",{
         template: '<home></home>'
     })
-
 });

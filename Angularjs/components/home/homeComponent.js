@@ -22,6 +22,7 @@ function homeController($mdSidenav) {
 
 //Methods for the navbar
 ctrl.goto = function(page){
+  this.pages = page;
   console.log(page);
 }
 
