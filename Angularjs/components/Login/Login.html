@@ -22,6 +22,7 @@
                 <input type="password" ng-model="$ctrl.password" name="password" required>
                 <div ng-messages="LoginForm.password.$error">
                         <div ng-message="required">This is required</div>
+<<<<<<< HEAD
                 </div>
             </md-input-container>
             <div>
@@ -35,3 +36,22 @@
         </form>
     </md-card>
 </div>
+=======
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input type="password" ng-model="$ctrl.password" name="password" required>
+                    <div ng-messages="LoginForm.password.$error">
+                            <div ng-message="required">This is required</div>
+                    </div>
+                </md-input-container>
+                <md-button type="submit" class="md-raised" id="submission">
+                    Login
+                </md-button>
+                <span>New to CONFR? Register <a href="http://www.google.com">here</a></span>
+            </form>
+        </md-card>
+    </div>
+</body>
+>>>>>>> vishal_bhatt_main_menu
