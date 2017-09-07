@@ -1,8 +1,7 @@
 var app = angular.module('app');
 
 app.component('register',{ 
-    
-        template: 'register.html',
+        templateUrl: 'components/register/register.html',
         controller: RegisterController
 })
 

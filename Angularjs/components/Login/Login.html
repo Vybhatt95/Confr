@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="app.css/Login.css">
 <div class="container" id="LoginPage" layout="column" layout-align = "top center">
     <md-toolbar id="Header">
         <h1><span>CONFR</span></h1>
@@ -21,32 +22,16 @@
                 <input type="password" ng-model="$ctrl.password" name="password" required>
                 <div ng-messages="LoginForm.password.$error">
                         <div ng-message="required">This is required</div>
-<<<<<<< HEAD
                 </div>
             </md-input-container>
+            <div>
+                {{message}}
+            </div>
             <md-button type="submit" class="md-raised" id="submission">
                 Login
             </md-button>
-            <span>New to CONFR? Register <a href="http://www.google.com">here</a></span>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>            
+            <span>New to CONFR? Register <a id="redirect" href="#!register">here</a></span>
         </form>
     </md-card>
 </div>
-=======
-                    </div>
-                </md-input-container>
-                <md-input-container>
-                    <label>Password</label>
-                    <input type="password" ng-model="$ctrl.password" name="password" required>
-                    <div ng-messages="LoginForm.password.$error">
-                            <div ng-message="required">This is required</div>
-                    </div>
-                </md-input-container>
-                <md-button type="submit" class="md-raised" id="submission">
-                    Login
-                </md-button>
-                <span>New to CONFR? Register <a href="http://www.google.com">here</a></span>
-            </form>
-        </md-card>
-    </div>
-</body>
->>>>>>> vishal_bhatt_main_menu

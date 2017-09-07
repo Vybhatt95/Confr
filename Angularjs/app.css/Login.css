@@ -19,7 +19,8 @@
   margin-top: 10%;
   background-color: #FFFADD;
   width: 50%;
-  border-radius: 25px; }
+  border-radius: 25px;
+  /* unvisited link */ }
   #LoginPanel md-toolbar {
     background-color: #FCD949;
     color: #000000;
@@ -27,3 +28,5 @@
     border-top-right-radius: 25px; }
   #LoginPanel #submission {
     background-color: #FCD949; }
+  #LoginPanel a:link {
+    color: #92C24C; }
