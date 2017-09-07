@@ -1,4 +1,4 @@
-var app = Angular.module('app');
+var app = angular.module('app');
 
 app.service('ListService', function() {
     var ctrl = this;
@@ -13,5 +13,18 @@ app.service('ListService', function() {
         if(index >= 0) {
             ctrl.lists.splice(index, 1);
         }
+    }
+})
+
+app.service('listObj',function(){
+    var ctrl = this;
+
+    ctrl.obj = null;
+
+    ctrl.getObj = function(){
+        return ctrl.obj
+    }
+    ctrl.setObj = function(o){
+        ctrl.obj = o
     }
 })
