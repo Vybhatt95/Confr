@@ -15,19 +15,6 @@ function LoginController($http, $location) {
             password: ctrl.password
         }
 
-<<<<<<< HEAD
-        $http({
-            url: '',
-            method: 'Post',
-            data: JSON.stringify(ctrl.credentials)
-        }).then(function(response) {
-            ctrl.message = response.data;
-        }), function(response) {
-
-            ctrl.message = response.data;
-
-        }
-=======
         console.log("hello");
         $location.path('/home');
 
@@ -40,7 +27,6 @@ function LoginController($http, $location) {
         // }), function(response) {
         //     ctrl.message = response.data;
         // }
->>>>>>> da007ed0d1d47130f8e5c40bd0b07e734ca7ddd2
     }
 
 }

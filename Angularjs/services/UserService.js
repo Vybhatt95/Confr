@@ -1,4 +1,4 @@
-var app = angular.moduler('app');
+var app = angular.module('app');
 
 app.service('UserService', function() {
     var ctrl = this;
