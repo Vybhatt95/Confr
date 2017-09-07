@@ -50,10 +50,10 @@
            <i class="material-icons">create</i>
          </md-nav-item>
 
-         <md-nav-item md-nav-click="$ctrl.goto('page3')" name="page3" >
+         <md-nav-item md-nav-click="$ctrl.goto('analysis')" name="page3" >
            <i class="material-icons">graphic_eq</i>
          </md-nav-item>
-         <md-nav-item md-nav-click="$ctrl.goto('page4')" name="page4">
+         <md-nav-item md-nav-click="$ctrl.goto('search')" name="search">
           <i class="material-icons">search</i>
          </md-nav-item>
 
@@ -68,7 +68,6 @@
   <div ng-switch="$ctrl.pages">
     <div ng-switch-when="page1">
 
-
        <h1>Dogs</h1>
        <p>Welcome to a world of dogs.</p>
 
@@ -76,19 +75,19 @@
     </div>
     <div ng-switch-when="page2">
       <div id='createlist'>
-
       </div>
        <h1>Tutorials</h1>
        <p>Learn from examples.</p>
     </div>
+
+
     <div ng-switch-when="analysis">
-       <h1>Cars</h1>
-       <p>Read about cars.</p>
+       <analysis-sw></analysis-sw>
     </div>
 
+
     <div ng-switch-when="search">
-       <h1>Search</h1>
-       <p>Read about cars.</p>
+    <search-sw></search-sw>
     </div>
     <div ng-switch-default>
        <h1>Switch</h1>
