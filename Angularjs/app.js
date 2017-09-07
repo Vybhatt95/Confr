@@ -15,6 +15,12 @@ app.config(function($routeProvider) {
     .when("/graphs",{
         template: '<analysis></analysis>'
     })
+    .when("/list",{
+        template: '<list></list>'
+    })
+    .when("/listdetail",{
+        template: '<listdetail></listdetail>'
+    })
 
 
 });
