@@ -7,6 +7,7 @@ app.component('analysis', {
 
 function AnalysisController() {
     var ctrl = this;
+    ctrl.listData = [];
 
     ctrl.myDataSource = {
         chart: {

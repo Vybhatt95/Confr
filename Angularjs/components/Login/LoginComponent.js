@@ -5,25 +5,28 @@ app.component('login', {
     controller: LoginController
 })
 
-function LoginController() {
+function LoginController($http, $location) {
     var ctrl = this;
 
     ctrl.message = "";
-    ctrl.login = function($http, UserService) {
+    ctrl.login = function() {
         ctrl.credentials = {
             username: ctrl.username,
             password: ctrl.password
         }
 
-        $http({
-            url: '',
-            method: 'Post',
-            data: JSON.stringify(ctrl.credentials)
-        }).then(function(response) {
-            ctrl.message = response.data;
-        }), function(response) {
-            ctrl.message = response.data;
-        }
+        console.log("hello");
+        $location.path('/home');
+
+        // $http({
+        //     url: '',
+        //     method: 'Post',
+        //     data: JSON.stringify(ctrl.credentials)
+        // }).then(function(response) {
+        //     ctrl.message = response.data;
+        // }), function(response) {
+        //     ctrl.message = response.data;
+        // }
     }
 
 }
