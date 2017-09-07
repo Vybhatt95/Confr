@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngMaterial','ngRoute', 'ngMessages']);
+var app = angular.module('app', ['ngMaterial','ngRoute', 'ngMessages', 'ng-fusioncharts']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -10,6 +10,9 @@ app.config(function($routeProvider) {
     })
     .when("/register",{
         template: '<register></register>'
+    })
+    .when("/graphs",{
+        template: '<analysis></analysis>'
     })
 
 });
