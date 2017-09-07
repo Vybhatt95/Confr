@@ -1,7 +1,7 @@
 var app = angular.module('app');
 
-app.component('analysis', {
-    templateUrl: 'components/analysis/analysis.html',
+app.component('analysisSw', {
+    templateUrl: 'components/analysis/analysis-sw.html',
     controller: AnalysisController
 })
 

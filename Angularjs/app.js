@@ -8,10 +8,7 @@ app.config(function($routeProvider) {
     .when("/home",{
         template: '<home></home>'
     })
-<<<<<<< HEAD
 
-=======
->>>>>>> 738fd3030cdd256b427ffe1172f47734cdb0f1d6
     .when("/register",{
         template: '<register></register>'
     })
