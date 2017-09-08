@@ -1,6 +1,6 @@
 package com.ex;
 
-import com.ex.Dao.Userdao;
+import com.ex.Dao.userDao;
 import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,21 +12,21 @@ import org.springframework.context.annotation.Bean;
 public class DemoApplication {
 
     @Autowired
-    Userdao dao;
+    userDao dao;
 
     public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-//    @Bean
-//    public CommandLineRunner runner(){
-//        return args -> {
-//            User a = dao.findOne(1);
-//            System.out.println(a);
-//            User b = dao.findByUserName("Batman");
-//            System.out.println(b);
-//        };
-//    }
+    @Bean
+    public CommandLineRunner runner(){
+        return args -> {
+            User a = dao.findOne(1);
+            System.out.println(a);
+            User b = dao.findByUserName("Batman");
+            System.out.println(b);
+        };
+    }
 
 
 }
