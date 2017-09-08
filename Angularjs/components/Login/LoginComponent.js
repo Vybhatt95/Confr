@@ -22,6 +22,7 @@ function LoginController($http, $location) {
                 }
                 else{
                   $location.path('/');
+                  ctrl.message = "Username/password may be wrong"
                 }
               }
               else {
