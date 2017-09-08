@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class)
 public class DemoApplication {
 
     @Autowired
@@ -18,15 +18,15 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-    @Bean
-    public CommandLineRunner runner(){
-        return args -> {
-            User a = dao.findOne(1);
-            System.out.println(a);
-            User b = dao.findByUserName("Batman");
-            System.out.println(b);
-        };
-    }
+//    @Bean
+//    public CommandLineRunner runner(){
+//        return args -> {
+//            User a = dao.findOne(1);
+//            System.out.println(a);
+//            User b = dao.findByUserName("Batman");
+//            System.out.println(b);
+//        };
+//    }
 
 
 }
