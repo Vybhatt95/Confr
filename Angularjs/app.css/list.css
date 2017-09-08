@@ -28,3 +28,8 @@
 
 .line-thru {
   text-decoration: line-through; }
+
+.divbody{
+  padding: 50px;
+  background-color: #FCD949;
+}

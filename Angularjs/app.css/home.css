@@ -1,19 +1,25 @@
-
-#LOL {
-  background-color:  #FCD949; }
-
+#Header {
+  background: linear-gradient(to right, #92C24C, #FFEEA8);
+  font-family: 'Allerta Stencil', sans-serif; }
+  #Header h1 {
+    color: #FFFADD;
+    font-size: 57px;
+    margin: 0; }
 
 #navbarpadding{
   margin: auto;
 }
 
-
-#searchBar {
-
-        text-align: center;
+#sideNav{
+  background:  #92C24C;
+    font-family: 'Allerta Stencil', sans-serif;
 
 }
-
+#sideNav h2{
+  color: #FFFADD;
+  font-size: 37px;
+  margin: 0;
+}
 
 .container {
 
@@ -32,7 +38,7 @@
 }
 
 .vertical-align {
-  
+
   display: table-cell;
 }
 
