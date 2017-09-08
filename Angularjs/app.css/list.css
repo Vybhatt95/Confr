@@ -14,7 +14,9 @@
   background-color: #FCD949 !important; }
 
 .raleway {
-  font-family: 'Muli', sans-serif; }
+  font-family: 'Muli', sans-serif;
+
+ }
 
 .banner-title {
   margin-top: 20px;
@@ -28,3 +30,8 @@
 
 .line-thru {
   text-decoration: line-through; }
+
+.divbody {
+  padding: 40px;
+  background-color: #FCD949;
+}

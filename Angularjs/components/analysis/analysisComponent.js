@@ -16,23 +16,23 @@ function AnalysisController() {
         },
         data:[{
             label: "Bakersfield Central",
-            value: "880000"
+            value: "8"
         },
         {
             label: "Garden Groove harbour",
-            value: "730000"
+            value: "73"
         },
         {
             label: "Los Angeles Topanga",
-            value: "590000"
+            value: "59"
         },
         {
             label: "Compton-Rancho Dom",
-            value: "520000"
+            value: "52"
         },
         {
             label: "Daly City Serramonte",
-            value: "330000"
+            value: "33"
         }]
       };
 
