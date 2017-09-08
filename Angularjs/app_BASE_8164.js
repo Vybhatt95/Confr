@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngMaterial','ngRoute', 'ngMessages', 'ng-fusioncharts']);
+var app = angular.module('app', ['ngMaterial','ngRoute', 'ngMessages']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -8,23 +8,15 @@ app.config(function($routeProvider) {
     .when("/home",{
         template: '<home></home>'
     })
-
+<<<<<<< HEAD
+=======
     .when("/register",{
         template: '<register></register>'
     })
-    .when("/graphs",{
-        template: '<analysis></analysis>'
-    })
-    .when("/list",{
-        template: '<list></list>'
-    })
-    .when("/listdetail",{
-        template: '<listdetail></listdetail>'
-    })
-
 
 });
 
 app.controller("baseCtrl", function($scope){
 
+>>>>>>> e18baaf547dc9d486b22d69d672795a2cce9b859
 });

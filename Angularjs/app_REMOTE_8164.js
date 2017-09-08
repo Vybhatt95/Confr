@@ -8,20 +8,12 @@ app.config(function($routeProvider) {
     .when("/home",{
         template: '<home></home>'
     })
-
     .when("/register",{
         template: '<register></register>'
     })
     .when("/graphs",{
         template: '<analysis></analysis>'
     })
-    .when("/list",{
-        template: '<list></list>'
-    })
-    .when("/listdetail",{
-        template: '<listdetail></listdetail>'
-    })
-
 
 });
 
