@@ -15,6 +15,8 @@ public class Lists {
     private List<Item> items;
 
 
+    public Lists() {}
+
     @ManyToMany
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
     public List<Item> getItems() {

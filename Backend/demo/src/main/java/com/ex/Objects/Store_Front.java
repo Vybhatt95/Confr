@@ -17,6 +17,7 @@ public class Store_Front {
     private List<Item> items;
 
 
+    public Store_Front() {}
 
     @ManyToMany
     @JoinTable(name = "STORE_JUNCTION", joinColumns = {@JoinColumn(name = "STOREID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})

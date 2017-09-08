@@ -14,6 +14,19 @@ public class User {
     private String lastName;
     private String userName;
     private String email;
+    private String passWord;
+
+    public User() {}
+
+
+    @Column(name = "PASS_WORD")
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
 
     @Override
     public String toString() {
