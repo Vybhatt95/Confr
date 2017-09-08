@@ -13,6 +13,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
+    private String passWord;
     private String email;
     private String passWord;
 
@@ -35,6 +36,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
@@ -83,5 +85,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Column(name = "PASS_WORD")
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 }
