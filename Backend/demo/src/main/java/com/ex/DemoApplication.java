@@ -1,6 +1,6 @@
 package com.ex;
 
-import com.ex.Dao.userDao;
+import com.ex.Dao.Userdao;
 import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DemoApplication {
 
     @Autowired
-    userDao dao;
+    Userdao dao;
 
     public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);

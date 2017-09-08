@@ -3,10 +3,12 @@ package com.ex.services;
 import com.ex.Dao.Userdao;
 import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by jeremy on 9/8/2017.
  */
+@Component
 public class UserService implements Service<User> {
 
     @Autowired
