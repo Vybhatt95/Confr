@@ -15,18 +15,20 @@ function LoginController($http, $location) {
             password: ctrl.password
         }
 
-        console.log("hello");
-        $location.path('/home');
+        $http.post('http://localhost:8080/users/login',JSON.stringify(credentials)).then(functio(response){
+              if(response.data){
+                if(resposne.data == 200){
+                  $location.path('/home');
+                }
+                else{
+                  $location.path('/');
+                  ctrl.message = "Username/password may be wrong"
+                }
+              }
+              else {
+                console.log("No response from host")
+              }
+        });
+    };
 
-        // $http({
-        //     url: '',
-        //     method: 'Post',
-        //     data: JSON.stringify(ctrl.credentials)
-        // }).then(function(response) {
-        //     ctrl.message = response.data;
-        // }), function(response) {
-        //     ctrl.message = response.data;
-        // }
-    }
-
-}
+};
