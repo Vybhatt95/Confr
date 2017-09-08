@@ -1,6 +1,8 @@
 package com.ex.Objects;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ public class Store_Front {
     }
 
     @Id
+    @GenericGenerator(name="storeIdGen",strategy = "increment")
+    @GeneratedValue(generator = "storeIdGen")
     @Column(name = "STOREID")
     public int getstoreId() {
         return storeId;

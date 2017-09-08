@@ -1,6 +1,5 @@
 package com.ex.web;
 
-import com.ex.Dao.Userdao;
 import com.ex.Objects.User;
 import com.ex.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,11 +19,20 @@ public class UserController {
     @Autowired
     UserService service;
 
+
     @RequestMapping(path="/register", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User registerUser(@RequestBody User user){
+    public String registerUser(@RequestBody User user){
+        ObjectMapper mapper = new ObjectMapper();
         service.insert(user);
-        return user;
+        String ret = null;
+
+        try{
+            ret = mapper.writeValueAsString(user);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+        return ret;
     }
 
     @RequestMapping(path="/user/{id}", method={RequestMethod.GET, RequestMethod.POST}
