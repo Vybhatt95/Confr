@@ -1,122 +1,56 @@
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-body{
-    background-color: #44813E
-}
-
-h1{
-    text-align: center;
-    font-size: 20px;
-
-}
-.raleway{
-    font-family: 'Raleway', sans-serif;
-}
-.filler{
-    height: 1px;
-}
-#reg-form{
-    background-color: #FFFADD;
-    margin-left:30%;
-    margin-right:30%;
-    margin-top: 3%;
-    margin-bottom: 10%; 
-    padding-left: 20px;
-    /* border: 2px solid black; */
-    border-radius: 15px;
-    box-shadow: 0 0 10px;
-    
-}
-#title-cont{
-    text-align: center;
-    padding-left:0;
-    margin-bottom: 15px;
-    padding-top: 15px;
-}
-
-.inp-cont{
-    margin: 5px;
-}
-.accent-yellow{
-    background-color: #FCD949 !important;
-}
-.inline{
-    display: inline-block;
-}
-
-.msg-nomatch{
-    font-size: 12px;
-    color: red;
-}
-.btn-wide{
-    width: 50% !important;
-}
-.right{
-    float: right;
-}
-.btn-regback{
-    margin-bottom: 25px;
-    margin-right: 25px;
-}
-</style>
+<link rel="stylesheet" href="app.css/register.css">
 
 <!-- Start component view -->
-<body>   
-<div class="filler"></div>
-    <div id="reg-form" layout="row" layout-align="start">
-            <form ng-submit="createUser()" name="userForm" class="ng-pristine ng-valid" flex>
-                <div id="title-cont"class="raleway"><h1><strong>Register an Account</strong></h1></div>
+<div class="container" id="registerPage" layout="column" layout-align = "start center">  
+        <md-card id="registerPanel">
+        <md-toolbar layout="row" layout-align="center">
+            <div>
+                <h3><span>Register an Account</span></h3>
+            </div>
+        </md-toolbar>
+        <form ng-submit="$ctrl.createUser()" layout="column" layout-align="center center" name="userForm">
+            <div layout ="column">
                 <md-input-container class="inp-cont">
                     <label for="input_0">First Name</label>
                     <input class="md-input" ng-model="$ctrl.firstname">
-                </md-input-container><br>  
-
+                </md-input-container>
+        
                 <md-input-container class="inp-cont">
                     <label for="input_1">Last Name</label>
                     <input class="md-input" ng-model="$ctrl.lastname">
-                </md-input-container> <br>
-                
-                <md-input-container class="inp-cont">
-                    <label for="input_2">Email</label>
-                    <input class="md-input" ng-model="$ctrl.email">
-                </md-input-container> <br>
-
-                <md-input-container class="inp-cont">
-                    <label class="md-required" for="input_3">Username</label>
-                    <input required="" class="md-input" name="username" ng-model="$ctrl.username">
-                    <div ng-messages="userForm.username.$error">
-                        <div ng-message="required">This is required</div>
-                    </div>
-                </md-input-container> <br>
-                
-                <md-input-container class="inp-cont">
-                    <label>Password</label>
-                    <input required type="password" ng-model="$ctrl.password">
-                </md-input-container> <br>   
-                                
-                <md-input-container class="inp-cont">
-                    <label>Confirm Password</label>
-                    <input required type="password" ng-model="$ctrl.confirm">
-                        <div ng-if="$ctrl.password != $ctrl.confirm">
-                        <div ><p class="msg-nomatch">Passwords do not match<p></div>
-                    </div>
-                </md-input-container> <br>
-                    <md-input-container layout="row">
-                        <button class="md-raised accent-yellow md-button" flex="33" type="submit">Register</button>
-                    </md-input-container> 
-            </form>
-            <div flex="30" layout="column" layout-align="start" >
-                <div flex></div>
-                <button class="md-raised md-button btn-regback" flex="7"><a href="#!">Back</a></button>
+                </md-input-container>
             </div>
 
-    </div>
-</body>
+            
+            <md-input-container class="inp-cont">
+                <label for="input_2">Email</label>
+                <input class="md-input" ng-model="$ctrl.email">
+            </md-input-container>
+
+            <md-input-container class="inp-cont">
+                <label class="md-required" for="input_3">Username</label>
+                <input required="" class="md-input" name="username" ng-model="$ctrl.username">
+                <div ng-messages="userForm.username.$error">
+                    <div ng-message="required">This is required</div>
+                </div>
+            </md-input-container>
+                
+            <md-input-container class="inp-cont">
+                <label>Password</label>
+                <input required type="password" ng-model="$ctrl.password">
+            </md-input-container>
+                            
+            <md-input-container class="inp-cont">
+                <label>Confirm Password</label>
+                <input required type="password" ng-model="$ctrl.confirm">
+                    <div ng-if="$ctrl.password != $ctrl.confirm">
+                    <div ><p class="msg-nomatch">Passwords do not match<p></div>
+                </div>
+            </md-input-container>
+            <md-input-container layout="row">
+                    <button id="submission" class="md-raised accent-yellow md-button" type="submit">Register</button>
+                    <button id="goBack" class="md-raised md-button btn-regback" ng-click="$ctrl.back()">Back</button>
+            </md-input-container> 
+        </form>
+    </md-card>
+</div>

@@ -5,7 +5,7 @@ app.component('register',{
         controller: RegisterController
 })
 
-function RegisterController(){
+function RegisterController($location, $http){
     var ctrl = this;
     ctrl.user;
     ctrl.firstname;
@@ -32,5 +32,9 @@ function RegisterController(){
         }, function(response){
 
         })
+    }
+
+    ctrl.back = function(){
+        $location.path("/");
     }
 }
