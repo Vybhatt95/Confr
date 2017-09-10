@@ -38,6 +38,10 @@ public class UserService implements Service<User> {
     public User findById(Integer id){
          return dao.findOne(id);
     }
+
+    public User loginUser(String username, String password){
+        return null;
+    }
 }
 
 

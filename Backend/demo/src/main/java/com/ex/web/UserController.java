@@ -50,5 +50,15 @@ public class UserController {
         return ret;
     }
 
+    @RequestMapping(path="/login", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String loginUser(@RequestBody String username, @RequestBody String password){
+        ObjectMapper mapper = new ObjectMapper();
+        String str = null;
+        return str;
+
+    }
+
+
 
 }
