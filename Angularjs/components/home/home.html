@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="app.css/home.css">
 
-<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
- <md-toolbar layout="row">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" id="sideNav">
+ <md-toolbar layout="row" id="sideNav">
   <div class="md-toolbar-tools">
        <h2>
          <span>Settings</span>
@@ -28,16 +28,16 @@
 </md-sidenav>
 
 
-<md-toolbar class="desktop" id="LOL" >
+<md-toolbar class="desktop" id="Header" >
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button"  ng-click="$ctrl.openSideNavPanel()">
         <md-tooltip>Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5D2</md-icon>
       </md-button>
 
-      <h2>
+      <h1>
         <span>Confr</span>
-      </h2>
+      </h1>
 
     <div class="navbar" id="navbarpadding">
         <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" >
@@ -62,17 +62,13 @@
     </div>
    </md-toolbar>
 
+
+
 <body>
 
 
   <div ng-switch="$ctrl.pages">
-    <div ng-switch-when="page1">
 
-       <h1>Dogs</h1>
-       <p>Welcome to a world of dogs.</p>
-
-
-    </div>
     <div ng-switch-when="page2">
       <div id='createlist'>
       </div>
@@ -90,7 +86,7 @@
     <search-sw></search-sw>
     </div>
     <div ng-switch-default>
-       <h1>Switch</h1>
+       <list-sw></list-sw>
     </div>
 
   </div>

@@ -15,7 +15,7 @@ function LoginController($http, $location) {
             password: ctrl.password
         }
 
-        $http.post('http://localhost:8080/users/login',JSON.stringify(credentials)).then(function(response){
+        $http.post('http://localhost:8080/users/login',JSON.stringify(ctrl.credentials)).then(function(response){
               if(response.data){
                 if(resposne.data == 200){
                   $location.path('/home');

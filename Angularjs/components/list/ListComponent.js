@@ -102,14 +102,14 @@ var dummy = [{
 
 var app = angular.module('app');
 
-app.component('list',{
-    templateUrl: "components/list/list.html",
+app.component('listSw',{
+    templateUrl: "components/list/list-sw.html",
     controller: ListController
 })
 
 function ListController(listObj,$location){
     var ctrl = this;
-   
+
     ctrl.list = dummy;
 
     ctrl.getCompleteList = function(l){
