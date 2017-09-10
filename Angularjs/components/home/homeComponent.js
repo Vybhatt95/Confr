@@ -11,6 +11,7 @@ function homeController($mdSidenav) {
   ctrl.$onInit = function() {
       console.log("wassip");
   }
+  
 //Methods for SIDE BAR
   ctrl.showMobileMainHeader = true;
 	ctrl.openSideNavPanel = function() {

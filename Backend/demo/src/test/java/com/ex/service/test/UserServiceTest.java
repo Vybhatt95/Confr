@@ -15,7 +15,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Created by jeremy on 9/8/2017.
@@ -52,7 +56,9 @@ public class UserServiceTest {
     }
 
 //    @Test
-//    public void returnsAGoodUser() throws Execption{
-//        mockMvc.perform(register);
+//    public void returnsAGoodUser() throws Exception{
+//        mockMvc.perform(get("/users/user/44"))
+//        .andExpect(status().isOk())
+//        .andExpect(jsonPath("$.firstName"), is(testUser.getfirstName()))
 //    }
 }

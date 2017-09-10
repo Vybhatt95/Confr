@@ -1,10 +1,9 @@
 package com.ex.Objects;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "USERINFO")
@@ -29,6 +28,8 @@ public class User {
     }
 
     @Id
+    @GenericGenerator(name="userIdGen",strategy = "increment")
+    @GeneratedValue(generator = "userIdGen")
     @Column(name = "USERID")
     public int getuserId() {
         return userId;

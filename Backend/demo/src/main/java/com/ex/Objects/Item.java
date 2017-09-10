@@ -1,6 +1,8 @@
 package com.ex.Objects;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,8 @@ public class Item {
 
 
     @Id
+    @GenericGenerator(name="itemIdGen",strategy = "increment")
+    @GeneratedValue(generator = "itemIdGen")
     @Column(name="ITEMID")
     public int getitemId() {
         return itemId;

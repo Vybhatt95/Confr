@@ -5,7 +5,7 @@ app.component('register',{
         controller: RegisterController
 })
 
-function RegisterController($location, $http ){
+function RegisterController($location, $http){
     var ctrl = this;
     ctrl.user;
     ctrl.firstname;

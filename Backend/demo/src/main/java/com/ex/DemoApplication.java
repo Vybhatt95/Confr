@@ -20,15 +20,7 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-    @Bean
-    public CommandLineRunner runner(){
-        return args -> {
-            User a = dao.findOne(1);
-            System.out.println(a);
-            User b = dao.findByUserName("Batman");
-            System.out.println(b);
-        };
-    }
+
 
     //Example mapping to the root
     @Controller
