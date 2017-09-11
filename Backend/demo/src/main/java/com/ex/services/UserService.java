@@ -1,6 +1,6 @@
 package com.ex.services;
 
-import com.ex.Dao.Userdao;
+import com.ex.Dao.userDao;
 import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class UserService implements Service<User> {
 
     @Autowired
-    Userdao dao;
+    userDao dao;
 
     @Override
     public User findOne(User user) {

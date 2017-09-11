@@ -1,11 +1,10 @@
 package com.ex.Objects;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "STORE_FRONT")
@@ -16,30 +15,31 @@ public class Store_Front {
     private String storeCity;
     private String storeState;
     private String storeZip;
-    private List<Item> items;
 
 
     public Store_Front() {}
 
-    @ManyToMany
-    @JoinTable(name = "STORE_JUNCTION", joinColumns = {@JoinColumn(name = "STOREID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
-    public List<Item> getItems() {
-        return items;
+    @Override
+    public String toString() {
+        return "Store_Front{" +
+                "storeId=" + storeId +
+                ", storeName='" + storeName + '\'' +
+                ", storeAddress='" + storeAddress + '\'' +
+                ", storeCity='" + storeCity + '\'' +
+                ", storeState='" + storeState + '\'' +
+                ", storeZip='" + storeZip + '\'' +
+                '}';
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
+
 
     @Id
-    @GenericGenerator(name="storeIdGen",strategy = "increment")
-    @GeneratedValue(generator = "storeIdGen")
     @Column(name = "STOREID")
-    public int getstoreId() {
+    public int getStoreId() {
         return storeId;
     }
 
-    public void setstoreId(int storeId) {
+    public void setStoreId(int storeId) {
         this.storeId = storeId;
     }
 

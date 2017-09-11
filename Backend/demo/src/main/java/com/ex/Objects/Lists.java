@@ -1,10 +1,7 @@
 package com.ex.Objects;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -12,10 +9,31 @@ import java.util.List;
 public class Lists {
     private int listId;
     private String listName;
-    private int listTotal;
-    private int userId;
-    private List<Item> items;
+    private double listTotal;
 
+    private List<Item> items;
+    private User users;
+
+
+    @ManyToOne
+    @JoinColumn(name="USERID", nullable=false)
+    public User getUsers() {
+        return users;
+    }
+
+    public void setUsers(User users) {
+        this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Lists{" +
+                "listId=" + listId +
+                ", listName='" + listName + '\'' +
+                ", listTotal=" + listTotal +
+                ", userId=" + users.getuserId() +
+                '}';
+    }
 
     public Lists() {}
 
@@ -30,8 +48,6 @@ public class Lists {
     }
 
     @Id
-    @GenericGenerator(name="listIdGen",strategy = "increment")
-    @GeneratedValue(generator = "listIdGen")
     @Column(name = "LISTID")
     public int getlistId() {
         return listId;
@@ -51,20 +67,13 @@ public class Lists {
     }
 
     @Column(name = "LISTTOTAL")
-    public int getlistTotal() {
+    public double getlistTotal() {
         return listTotal;
     }
 
-    public void setlistTotal(int listTotal) {
+    public void setlistTotal(double listTotal) {
         this.listTotal = listTotal;
     }
 
-    @Column(name = "USERID")
-    public int getuserId() {
-        return userId;
-    }
 
-    public void setuserId(int userId) {
-        this.userId = userId;
-    }
 }

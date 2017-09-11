@@ -1,9 +1,8 @@
 package com.ex.Objects;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "USERINFO")
@@ -12,20 +11,19 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
-    private String passWord;
     private String email;
     private String passWord;
-
+    private List<Lists> lists;
     public User() {}
 
 
-    @Column(name = "PASS_WORD")
-    public String getPassWord() {
-        return passWord;
+    @OneToMany(mappedBy = "users")
+    public List<Lists> getLists() {
+        return lists;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setLists(List<Lists> lists) {
+        this.lists = lists;
     }
 
     @Override
@@ -41,8 +39,6 @@ public class User {
     }
 
     @Id
-    @GenericGenerator(name="userIdGen",strategy = "increment")
-    @GeneratedValue(generator = "userIdGen")
     @Column(name = "USERID")
     public int getuserId() {
         return userId;
