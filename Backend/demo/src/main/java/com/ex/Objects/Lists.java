@@ -1,6 +1,8 @@
 package com.ex.Objects;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 import java.util.List;
@@ -28,6 +30,8 @@ public class Lists {
     }
 
     @Id
+    @GenericGenerator(name="listIdGen",strategy = "increment")
+    @GeneratedValue(generator = "listIdGen")
     @Column(name = "LISTID")
     public int getlistId() {
         return listId;
