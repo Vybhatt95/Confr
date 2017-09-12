@@ -85,9 +85,6 @@ function ListDetailController(listObj){
     ctrl.list = dummy1[listObj.getObj().id];
     //ctrl.crossedOff = false;
     ctrl.crossOff = function(i){
-
-          i.crossedOff = !i.crossedOff
-      
-
+        i.crossedOff = !i.crossedOff
     }
 }

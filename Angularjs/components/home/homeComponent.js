@@ -30,6 +30,7 @@ function homeController($mdSidenav, $mdDialog, $location) {
   ctrl.openSideNavPanel = function() {
     $mdSidenav('left').open();
   };
+  
   ctrl.closeSideNavPanel = function() {
     $mdSidenav('left').close();
   };
