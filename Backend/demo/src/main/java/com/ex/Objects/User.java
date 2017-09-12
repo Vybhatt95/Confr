@@ -1,6 +1,8 @@
 package com.ex.Objects;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,24 +13,9 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
-    private String email;
-
     private String passWord;
+    private String email;
     private List<Lists> lists;
-    public User() {}
-
-
-    @OneToMany(mappedBy = "users")
-    public List<Lists> getLists() {
-        return lists;
-    }
-
-    public void setLists(List<Lists> lists) {
-        this.lists = lists;
-    }
-
-    private List<Lists> lists;
-
 
     public User() {}
     @Override
@@ -44,6 +31,8 @@ public class User {
     }
 
     @Id
+    @GenericGenerator(name="userIdGen",strategy = "increment")
+    @GeneratedValue(generator = "userIdGen")
     @Column(name = "USERID")
     public int getuserId() {
         return userId;

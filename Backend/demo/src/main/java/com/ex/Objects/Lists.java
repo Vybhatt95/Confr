@@ -1,7 +1,10 @@
 package com.ex.Objects;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -9,38 +12,10 @@ import java.util.List;
 public class Lists {
     private int listId;
     private String listName;
-
-    private double listTotal;
-
-
     private int listTotal;
     private User user;
-
     private List<Item> items;
-    private User users;
 
-
-    @ManyToOne
-    @JoinColumn(name="USERID", nullable=false)
-    public User getUsers() {
-        return users;
-    }
-
-    public void setUsers(User users) {
-        this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "Lists{" +
-                "listId=" + listId +
-                ", listName='" + listName + '\'' +
-                ", listTotal=" + listTotal +
-                ", userId=" + users.getuserId() +
-                '}';
-    }
-
-    public Lists() {}
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
@@ -53,6 +28,8 @@ public class Lists {
     }
 
     @Id
+    @GenericGenerator(name="listIdGen",strategy = "increment")
+    @GeneratedValue(generator = "listIdGen")
     @Column(name = "LISTID")
     public int getlistId() {
         return listId;
@@ -72,16 +49,13 @@ public class Lists {
     }
 
     @Column(name = "LISTTOTAL")
-    public double getlistTotal() {
+    public int getlistTotal() {
         return listTotal;
     }
 
-    public void setlistTotal(double listTotal) {
+    public void setlistTotal(int listTotal) {
         this.listTotal = listTotal;
     }
-
-
-
 
     @ManyToOne
     @JoinColumn(name = "USERID", nullable=false)
@@ -92,5 +66,4 @@ public class Lists {
     public void setUser(User user) {
         this.user = user;
     }
-
 }
