@@ -1,0 +1,12 @@
+#DialogContent {
+    margin-top: 5px;
+    background-color: #FFFADD;
+    border: #92C242 solid 2px
+}
+#DialogContent md-toolbar {
+    background-color: #92C242;
+    color: #000000; }
+
+    #DialogContent .submission {
+    background-color: #92C242; }
+  

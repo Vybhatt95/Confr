@@ -1,0 +1,96 @@
+<link rel="stylesheet" href="app.css/home.css">
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" id="sideNav">
+ <md-toolbar layout="row" id="sideNav">
+  <div class="md-toolbar-tools">
+       <h2>
+         <span>Settings</span>
+       </h2>
+       <span flex></span>
+       <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="$ctrl.closeSideNavPanel()">
+         <md-tooltip>Close Side Panel</md-tooltip>
+         <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+       </md-button>
+      </div>
+ </md-toolbar>
+ <md-content layout-padding="">
+ <md-list layout="column" layout-align="start start">
+   <md-subheader class="md-no-sticky">Favorites</md-subheader>
+   <md-list-item>
+     <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
+     <p>Messages</p>
+     <div class="md-secondary">2</div>
+   </md-list-item>
+   <md-list-item>
+    <md-icon class="md-default-theme" class="material-icons">&#xE899;</md-icon>
+    <md-button ng-click="$ctrl.showDialog($event)">
+      <p>Change Password</p>
+    </md-button>
+   </md-list-item>
+   <md-list-item>
+      <md-icon class="md-default-theme" class="material-icons">&#xE879;</md-icon>
+      <md-button ng-click="$ctrl.logout()">
+        <p>Logout</p>
+      </md-button>
+   </md-list-item>
+  </md-list>
+ </md-content>
+</md-sidenav>
+
+<md-toolbar class="desktop" id="Header" >
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button"  ng-click="$ctrl.openSideNavPanel()">
+        <md-tooltip>Side Panel</md-tooltip>
+        <md-icon class="md-default-theme" class="material-icons">&#xE8B8;</md-icon>
+      </md-button>
+
+      <h1>
+        <span>Confr</span>
+      </h1>
+
+    <div class="navbar" id="navbarpadding">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" >
+
+         <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1" >
+          <i class="material-icons">home</i>
+         </md-nav-item>
+
+         <md-nav-item md-nav-click="$ctrl.goto('createList')" name="page2"  >
+           <i class="material-icons">create</i>
+         </md-nav-item>
+
+         <md-nav-item md-nav-click="$ctrl.goto('analysis')" name="page3" >
+           <i class="material-icons">graphic_eq</i>
+         </md-nav-item>
+         <md-nav-item md-nav-click="$ctrl.goto('search')" name="search">
+          <i class="material-icons">search</i>
+         </md-nav-item>
+
+        </md-nav-bar>
+    </div>
+    </div>
+   </md-toolbar>
+<body>
+
+
+  <div ng-switch="$ctrl.pages">
+
+    <div ng-switch-when="createList">
+      <createlist-sw></createlist-sw>
+    </div>
+
+
+    <div ng-switch-when="analysis">
+       <analysis-sw></analysis-sw>
+    </div>
+
+
+    <div ng-switch-when="search">
+    <search-sw></search-sw>
+    </div>
+    <div ng-switch-default>
+       <list-sw></list-sw>
+    </div>
+
+  </div>
+</body>

@@ -1,0 +1,41 @@
+$green: #44813E;
+$ltgreen: #92C24C;
+$grnwht: #FFFADD;
+$ylwwht: #FFEEA8;
+$yellow: #FCD949;
+
+.green{
+    background-color: $green;
+}
+
+.ltgreen{
+    background-color: $ltgreen !important;
+}
+.grnwht{
+    background-color: $grnwht;
+}
+
+.ylwwht{
+    background-color: $ylwwht;
+}
+.yellow{
+    background-color: $yellow !important;
+}
+
+.raleway{
+    font-family: 'Muli', sans-serif;
+}
+.banner-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center !important;
+}
+#mylists{
+    font-size: 30px;
+    font-family: 'Muli', sans-serif;
+    text-align: center;
+
+}
+.line-thru{
+    text-decoration: line-through;
+}
