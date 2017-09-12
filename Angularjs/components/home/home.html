@@ -14,25 +14,34 @@
       </div>
  </md-toolbar>
  <md-content layout-padding="">
- <md-list>
+ <md-list layout="column" layout-align="start start">
    <md-subheader class="md-no-sticky">Favorites</md-subheader>
    <md-list-item>
      <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
      <p>Messages</p>
      <div class="md-secondary">2</div>
    </md-list-item>
-
-
+   <md-list-item>
+    <md-icon class="md-default-theme" class="material-icons">&#xE899;</md-icon>
+    <md-button ng-click="$ctrl.showDialog($event)">
+      <p>Change Password</p>
+    </md-button>
+   </md-list-item>
+   <md-list-item>
+      <md-icon class="md-default-theme" class="material-icons">&#xE879;</md-icon>
+      <md-button ng-click="$ctrl.logout()">
+        <p>Logout</p>
+      </md-button>
+   </md-list-item>
   </md-list>
  </md-content>
 </md-sidenav>
-
 
 <md-toolbar class="desktop" id="Header" >
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button"  ng-click="$ctrl.openSideNavPanel()">
         <md-tooltip>Side Panel</md-tooltip>
-        <md-icon class="md-default-theme" class="material-icons">&#xE5D2</md-icon>
+        <md-icon class="md-default-theme" class="material-icons">&#xE8B8;</md-icon>
       </md-button>
 
       <h1>
@@ -61,9 +70,6 @@
     </div>
     </div>
    </md-toolbar>
-
-
-
 <body>
 
 
