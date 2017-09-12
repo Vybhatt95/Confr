@@ -11,13 +11,13 @@ function LoginController($http, $location) {
     ctrl.message = "";
     ctrl.login = function() {
         ctrl.credentials = {
-            username: ctrl.username,
-            password: ctrl.password
+            userName: ctrl.username,
+            passWord: ctrl.password
         }
 
         $http.post('http://localhost:8080/users/login',JSON.stringify(ctrl.credentials)).then(function(response){
               if(response.data){
-                if(resposne.data == 200){
+                if(response.data == 200){
                   $location.path('/home');
                 }
                 else{
@@ -30,5 +30,4 @@ function LoginController($http, $location) {
               }
         });
     };
-
 };

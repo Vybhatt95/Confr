@@ -1,0 +1,52 @@
+
+.green {
+  background-color: #44813E; }
+
+.ltgreen {
+  background-color: #92C24C !important; }
+
+.grnwht {
+  background-color: #FFFADD; }
+
+.ylwwht {
+  background-color: #FFEEA8; }
+
+.yellow {
+  background-color: #FCD949 !important; }
+
+.raleway {
+  font-family: 'Muli', sans-serif;
+
+ }
+
+ #light{
+   background-color:#FFEEA8;
+ }
+
+.banner-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center !important; }
+
+#mylists {
+  font-size: 30px;
+  font-family: 'Muli', sans-serif;
+  text-align: center; }
+
+
+#dividerColor{
+  color: red;
+}
+
+.line-thru {
+  text-decoration: line-through; }
+
+.divbody{
+  padding: 50px;
+  background-color: #FCD949;
+}
+.input {
+  border: none;
+   background: transparent;
+  
+}

@@ -21,14 +21,15 @@ function RegisterController($location, $http){
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             data: {
-                "firstname": ctrl.username,
-                "lastname":  ctrl.lastname,
-                "username": ctrl.username,
-                "password": ctrl.password,
+                "firstName": ctrl.username,
+                "lastName":  ctrl.lastname,
+                "userName": ctrl.username,
+                "passWord": ctrl.password,
                 "email": ctrl.email
             }
         }).then(function(response){
-
+            alert("Your account was sucessfully registered. Returning to Login.");
+            $location.path("/");
         }, function(response){
 
         })

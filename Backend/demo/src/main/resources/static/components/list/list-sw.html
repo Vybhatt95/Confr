@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="app.css/list.css">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<div class="divbody">
+
+        <md-content layout="row" class="raleway">
+            <md-list flex>
+                <md-list-item id="eachItem" ng-repeat="item in $ctrl.list" >
+                    <!-- <div layout="row"> -->
+                        <h3 flex="50">{{item.listname}}<h3>
+                        <h4 flex="25">{{item.listtotal}}</h4>
+                        <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.getCompleteList(item)">Details</button>
+                        <md-divider ></md-divider>
+                    <!-- </div> -->
+                </md-list-item>
+            </md-list>
+        </md-content>
+</div>

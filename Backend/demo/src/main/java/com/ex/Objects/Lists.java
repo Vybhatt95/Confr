@@ -9,7 +9,12 @@ import java.util.List;
 public class Lists {
     private int listId;
     private String listName;
+
     private double listTotal;
+
+
+    private int listTotal;
+    private User user;
 
     private List<Item> items;
     private User users;
@@ -37,7 +42,7 @@ public class Lists {
 
     public Lists() {}
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
     public List<Item> getItems() {
         return items;
@@ -75,5 +80,17 @@ public class Lists {
         this.listTotal = listTotal;
     }
 
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "USERID", nullable=false)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }

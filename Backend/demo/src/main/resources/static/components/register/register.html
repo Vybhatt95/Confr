@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="app.css/register.css">
+
+<!-- Start component view -->
+<div class="container" id="registerPage" layout="column" layout-align = "start center">  
+        <md-card id="registerPanel">
+        <md-toolbar layout="row" layout-align="center">
+            <div>
+                <h3><span>Register an Account</span></h3>
+            </div>
+        </md-toolbar>
+        <form ng-submit="$ctrl.createUser()" layout="column" layout-align="center center" name="userForm">
+            <div layout ="column">
+                <md-input-container class="inp-cont">
+                    <label for="input_0">First Name</label>
+                    <input class="md-input" ng-model="$ctrl.firstname">
+                </md-input-container>
+        
+                <md-input-container class="inp-cont">
+                    <label for="input_1">Last Name</label>
+                    <input class="md-input" ng-model="$ctrl.lastname">
+                </md-input-container>
+            </div>
+            <md-input-container class="inp-cont">
+                <label for="input_2">Email</label>
+                <input class="md-input" ng-model="$ctrl.email">
+            </md-input-container>
+
+            <md-input-container class="inp-cont">
+                <label class="md-required" for="input_3">Username</label>
+                <input required="" class="md-input" name="username" ng-model="$ctrl.username">
+                <div ng-messages="userForm.username.$error">
+                    <div ng-message="required">This is required</div>
+                </div>
+            </md-input-container>
+                
+            <md-input-container class="inp-cont">
+                <label>Password</label>
+                <input required type="password" ng-model="$ctrl.password">
+            </md-input-container>
+                            
+            <md-input-container class="inp-cont">
+                <label>Confirm Password</label>
+                <input required type="password" ng-model="$ctrl.confirm">
+                    <div ng-if="$ctrl.password != $ctrl.confirm">
+                    <div ><p class="msg-nomatch">Passwords do not match<p></div>
+                </div>
+            </md-input-container>
+            <md-input-container layout="row">
+                    <button id="submission" class="md-raised accent-yellow md-button" type="submit">Register</button>
+                    <button id="goBack" class="md-raised md-button btn-regback" ng-click="$ctrl.back()">Back</button>
+            </md-input-container> 
+        </form>
+    </md-card>
+</div>

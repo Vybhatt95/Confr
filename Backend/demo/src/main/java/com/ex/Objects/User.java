@@ -12,6 +12,7 @@ public class User {
     private String lastName;
     private String userName;
     private String email;
+
     private String passWord;
     private List<Lists> lists;
     public User() {}
@@ -26,6 +27,10 @@ public class User {
         this.lists = lists;
     }
 
+    private List<Lists> lists;
+
+
+    public User() {}
     @Override
     public String toString() {
         return "User{" +
@@ -91,5 +96,14 @@ public class User {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    @OneToMany(mappedBy = "user",fetch=FetchType.EAGER)
+    public List<Lists> getLists(){
+        return lists;
+    }
+
+    public void setLists(List<Lists> lists){
+        this.lists = lists;
     }
 }
