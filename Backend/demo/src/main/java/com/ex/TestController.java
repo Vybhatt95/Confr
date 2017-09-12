@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @RequestMapping(path="/test",method= RequestMethod.GET)
     public String getMessage(){
-        return "<h1>Hello, World!</h1>";
+        return "<h1>Hello, Worl</h1>";
     }
 }
 

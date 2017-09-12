@@ -56,7 +56,7 @@
           <i class="material-icons">home</i>
          </md-nav-item>
 
-         <md-nav-item md-nav-click="$ctrl.goto('page2')" name="page2"  >
+         <md-nav-item md-nav-click="$ctrl.goto('createList')" name="page2"  >
            <i class="material-icons">create</i>
          </md-nav-item>
 
@@ -76,11 +76,8 @@
 
   <div ng-switch="$ctrl.pages">
 
-    <div ng-switch-when="page2">
-      <div id='createlist'>
-      </div>
-       <h1>Tutorials</h1>
-       <p>Learn from examples.</p>
+    <div ng-switch-when="createList">
+      <createList-sw></createList-sw>
     </div>
 
 
