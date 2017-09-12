@@ -1,5 +1,36 @@
-<div>
-  <p>
-    haheasd
-  </p>
+<link rel="stylesheet" href="app.css/createlist.css">
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+<div class="body">
+
+<div class="divbody body">
+  <md-toolbar layout="row" id="light" class="input  ">
+          <div class="md-toolbar-tools banner-title">
+            <input type="text" placeholder="New Folder" class="input" ng-model="$ctrl.listtitle" value="{{ctrl.listtitle}}" />
+          </div>
+      </md-toolbar>
+            <md-content layout="row" class="raleway">
+                <md-list flex>
+                    <md-list-item ng-repeat="item in $ctrl.products" >
+                            <h3 flex="50">{{item.itemname}}<h3>
+                            <h4 flex="25">{{item.price}}</h4>
+                            <md-divider></md-divider>
+                    </md-list-item>
+
+                    <md-list-item>
+                      <h3>
+                        <input list="browsers" name="browser" ng-model="$ctrl.val" class="input" placeholder="Search Item">
+                        <datalist id="browsers"  >
+                          <option  ng-repeat="x in $ctrl.productsToAdd" value="{{x.itemname}}">
+                        </datalist>
+                      </h3>
+                      </md-list-item>
+
+
+                    <md-list-item><button class="md-raised md-button yellow" ng-click="$ctrl.addItem($ctrl.val)">+ Add New Item</button></md-list-item>
+                </md-list>
+
+            </md-content>
+
+</div>
 </div>
