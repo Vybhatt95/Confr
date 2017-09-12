@@ -13,11 +13,11 @@ public class Lists {
     private int listId;
     private String listName;
     private int listTotal;
-    private int userId;
+    private User user;
     private List<Item> items;
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
     public List<Item> getItems() {
         return items;
@@ -57,12 +57,13 @@ public class Lists {
         this.listTotal = listTotal;
     }
 
-    @Column(name = "USERID")
-    public int getuserId() {
-        return userId;
+    @ManyToOne
+    @JoinColumn(name = "USERID", nullable=false)
+    public User getUser() {
+        return user;
     }
 
-    public void setuserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

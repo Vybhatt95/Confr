@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by jeremy on 9/8/2017.
  */
@@ -52,11 +54,39 @@ public class UserController {
 
     @RequestMapping(path="/login", method={RequestMethod.GET, RequestMethod.POST}
             , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
-    public String loginUser(@RequestBody String username, @RequestBody String password){
+    public String loginUser(@RequestBody User user, HttpSession session){
         ObjectMapper mapper = new ObjectMapper();
-        String str = null;
-        return str;
+        User u = service.loginUser(user.getuserName(),user.getPassWord());
+        String ret = null;
+        if(u != null){
+            session.setAttribute("user",u);
+        }
 
+        try{
+            ret = mapper.writeValueAsString(u);
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
+
+    }
+
+    @RequestMapping(path="/password", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String updatePassword(@RequestBody User user, HttpSession session){
+        ObjectMapper mapper = new ObjectMapper();
+        User u = (User)session.getAttribute("user");
+        String ret = null;
+        u.setPassWord(user.getPassWord());
+        u = service.update(u);
+        try{
+            ret = mapper.writeValueAsString(u);
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
     }
 
 

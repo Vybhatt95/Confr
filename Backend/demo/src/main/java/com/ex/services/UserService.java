@@ -40,7 +40,17 @@ public class UserService implements Service<User> {
     }
 
     public User loginUser(String username, String password){
-        return null;
+        User u = dao.findByUserName(username);
+        if(u == null){
+            return null;
+        }else{
+            if(password.equals(u.getPassWord())){
+                return u;
+            }
+            else{
+                return null;
+            }
+        }
     }
 }
 
