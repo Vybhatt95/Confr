@@ -88,5 +88,11 @@ public class ListsController {
         return ret;
     }
 
+    @RequestMapping(path="/compare", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    public String compareLists(@RequestBody List l){
+        return null;
+    }
+
 
 }

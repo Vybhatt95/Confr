@@ -16,8 +16,9 @@ function LoginController($http, $location) {
         }
 
         $http.post('http://localhost:8080/users/login',JSON.stringify(ctrl.credentials)).then(function(response){
+            console.log(response)
               if(response.data){
-                if(response.data == 200){
+                if(response.data != null){
                   $location.path('/home');
                 }
                 else{
@@ -26,6 +27,8 @@ function LoginController($http, $location) {
                 }
               }
               else {
+
+                 ctrl.message = "Username/password may be wrong"
                 console.log("No response from host")
               }
         });

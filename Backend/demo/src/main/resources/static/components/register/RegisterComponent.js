@@ -17,7 +17,7 @@ function RegisterController($location, $http){
     
     ctrl.createUser = function(){
         $http({
-            url: '.../register',
+            url: 'http://localhost:8080/users/register',
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             data: {

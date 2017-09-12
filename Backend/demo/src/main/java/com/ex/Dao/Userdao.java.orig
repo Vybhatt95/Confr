@@ -1,0 +1,14 @@
+package com.ex.Dao;
+
+import com.ex.Objects.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface Userdao extends JpaRepository<User, Integer> {
+<<<<<<< HEAD
+    User findByUserName(String userName);
+=======
+    User findByUserName(String username);
+>>>>>>> 3137824c7407825f79b6ec0d21065130f0bca157
+}

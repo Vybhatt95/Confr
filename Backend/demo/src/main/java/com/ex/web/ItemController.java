@@ -36,4 +36,10 @@ public class ItemController {
         }
         return null;
     }
+
+    @RequestMapping(path="/updateitem", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String updaateItem(@RequestBody Item i){
+        return null;
+    }
 }
