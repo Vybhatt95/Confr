@@ -4,6 +4,7 @@ package com.ex.Objects;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "USERINFO")
@@ -14,7 +15,9 @@ public class User {
     private String userName;
     private String passWord;
     private String email;
+    private List<Lists> lists;
 
+    public User() {}
     @Override
     public String toString() {
         return "User{" +
@@ -82,5 +85,14 @@ public class User {
 
     public void setPassWord(String passWord) {
         this.passWord = passWord;
+    }
+
+    @OneToMany(mappedBy = "user",fetch=FetchType.EAGER)
+    public List<Lists> getLists(){
+        return lists;
+    }
+
+    public void setLists(List<Lists> lists){
+        this.lists = lists;
     }
 }
