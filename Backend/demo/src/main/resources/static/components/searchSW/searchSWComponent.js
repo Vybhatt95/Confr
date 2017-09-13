@@ -5,32 +5,37 @@ app.component('searchSw',{
     controller: searchSWController
 })
 
-function searchSWController(){
+function searchSWController($http, ItemService){
   var ctrl = this;
-  ctrl.newPrice = 2.00;
-  ctrl.itemList = ["Apples", "Bananas", "Oranges"];
-  ctrl.storeList = ["Walmart", "Harris Teeter"];
+  ctrl.newPrice = 0.00;
+  ctrl.itemList = ItemService.itemNames;
+  ctrl.storeList = ItemService.storeNames;
 
   ctrl.$onInit = function() {
       console.log("Hello");
   }
 
-  ctrl.print = function(){
-    console.log("Hello form the print functions");
-  }
-
   ctrl.updatePrice = function() {
     ctrl.newItem = {
+      itemID: ItemService.getIndex(ctrl.itemID, ctrl.storeID),
+      itemPrice: ctrl.newPrice
+    }
 
+    $http({
+      url: "http://localhost:8080/item/updateitem",
+      method: "POST",
+      headers: {'Content-Type' : 'application/json'},
+      data: JSON.stringify(ctrl.newItem)
+    }).then(function(response) {
+      ItemService.updatePrice(ctrl.newItem.itemID, ctrl.newPrice);
+      alert("Item has been updated.")
+    }), function(){
+      alert("This is broken");
     }
   }
 
   ctrl.findPrice = function() {
-    console.log("gets here");
-    if(ctrl.itemList.indexOf(ctrl.itemID) == 0) {
-      ctrl.newPrice = 1.50;
-    } else {
-      ctrl.newPrice = 5.25;
-    }
+    console.log(ctrl.itemID + ctrl.storeID);;
+    ItemService.getPrice(ctrl.itemID, ctrl.storeID);
   }
 }

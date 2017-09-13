@@ -31,7 +31,7 @@ function RegisterController($location, $http){
             alert("Your account was sucessfully registered. Returning to Login.");
             $location.path("/");
         }, function(response){
-
+            alert("Your username or email has already been taken. Try Again.");
         })
     }
 
