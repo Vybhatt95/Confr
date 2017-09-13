@@ -23,12 +23,12 @@ function LoginController($http, $location) {
                 }
                 else{
                   $location.path('/');
-                  ctrl.message = "Username/password may be wrong"
+                  ctrl.message = "Invalid Username or Password"
                 }
               }
               else {
 
-                 ctrl.message = "Username/password may be wrong"
+                 ctrl.message = "Invalid Username or Password"
                 console.log("No response from host")
               }
         });
