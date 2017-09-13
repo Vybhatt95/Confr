@@ -37,11 +37,11 @@ public class UserController {
         return ret;
     }
 
-    @RequestMapping(path="/user/{id}", method={RequestMethod.GET, RequestMethod.POST}
+    @RequestMapping(path="/user", method={RequestMethod.GET, RequestMethod.POST}
             , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
-    public String getOne(@PathVariable Integer id){
+    public String getOne(HttpSession session){
         ObjectMapper mapper = new ObjectMapper();
-        User u = service.findById(id);
+        User u = (User)session.getAttribute("user");
         String ret = null;
 
         try{

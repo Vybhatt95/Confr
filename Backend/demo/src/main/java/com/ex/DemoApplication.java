@@ -1,6 +1,10 @@
 package com.ex;
 
 import com.ex.Dao.Userdao;
+import com.ex.Dao.itemDao;
+import com.ex.Dao.store_FrontDao;
+import com.ex.Objects.Item;
+import com.ex.Objects.Store_Front;
 import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +19,9 @@ public class DemoApplication {
 
     @Autowired
     Userdao dao;
+
+
+
 
     public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);

@@ -5,12 +5,23 @@ app.component('home',{
     controller: homeController
 })
 
-function homeController($mdSidenav, $mdDialog, $location) {
+function homeController($mdSidenav, $mdDialog, $location,$http) {
   var ctrl = this;
 
   ctrl.$onInit = function() {
       console.log("wassip");
   }
+
+  ctrl.currentUser;
+  $http({
+    url: 'http://localhost:8080/users/user',
+    method: 'GET'
+  }).then(function(response){
+    console.log(response)
+    ctrl.currentUser = response.data
+  },function(response){
+  })
+
 
   ctrl.showDialog = function(ev) {
     $mdDialog.show({
