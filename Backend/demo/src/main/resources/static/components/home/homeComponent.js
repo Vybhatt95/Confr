@@ -5,7 +5,7 @@ app.component('home',{
     controller: homeController
 })
 
-function homeController($mdSidenav, $mdDialog, $location,$http) {
+function homeController($mdSidenav, $mdDialog, $location, $http, ListService) {
   var ctrl = this;
 
   ctrl.$onInit = function() {
@@ -13,12 +13,17 @@ function homeController($mdSidenav, $mdDialog, $location,$http) {
   }
 
   ctrl.currentUser;
+
   $http({
     url: 'http://localhost:8080/users/user',
     method: 'GET'
   }).then(function(response){
-    console.log(response)
-    ctrl.currentUser = response.data
+
+    ctrl.currentUser = response.data;
+    ListService.lists = response.data.lists;
+
+   
+
   },function(response){
   })
 
@@ -28,7 +33,7 @@ function homeController($mdSidenav, $mdDialog, $location,$http) {
       template: '<change-pass></change-pass>',
       targetEvent: ev,
       clickOutsideToClose:true
-      
+
     }).then(function(answer) {
       console.log(answer);
     }, function() {
@@ -41,7 +46,7 @@ function homeController($mdSidenav, $mdDialog, $location,$http) {
   ctrl.openSideNavPanel = function() {
     $mdSidenav('left').open();
   };
-  
+
   ctrl.closeSideNavPanel = function() {
     $mdSidenav('left').close();
   };

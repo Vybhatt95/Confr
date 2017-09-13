@@ -4,19 +4,16 @@
 <div>
     <md-toolbar layout="row" class="ltgreen">
         <div class="md-toolbar-tools banner-title">
-            <span id="mylists">{{$ctrl.listtitle}}</span>
+            <span id="mylists">{{$ctrl.list.listName}}</span>
         </div>
     </md-toolbar>
     <md-content layout="row" class="raleway">
         <md-list flex>
-            <md-list-item ng-repeat="item in $ctrl.list" ng-click="$ctrl.crossOff(item)" ng-class="{'line-thru':item.crossedOff}">
-                <!-- <div layout="row"> -->
-                    <h3 flex="50">{{item.itemname}}<h3>
-                    <h4 flex="25">{{item.price}}</h4>
+            <md-list-item  ng-click="$ctrl.crossOff(item)" ng-class="{'line-thru':item.crossedOff}">
+                    <h3 flex="50">{{$ctrl.items.itemName}}<h3>
                     <md-divider></md-divider>
-                <!-- </div> -->
             </md-list-item>
-            <md-list-item><button class="md-raised md-button yellow">+ Add New Item</button></md-list-item>
         </md-list>
-    </md-content>            
+        <md-list-item><button class="md-raised md-button yellow">+ Add New Item</button></md-list-item>
+    </md-content>
 </div>
