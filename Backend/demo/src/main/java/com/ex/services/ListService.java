@@ -1,5 +1,6 @@
 package com.ex.services;
 
+import com.ex.Dao.itemDao;
 import com.ex.Dao.listsDao;
 import com.ex.Objects.Item;
 import com.ex.Objects.Lists;
@@ -18,6 +19,9 @@ public class ListService implements Service<Lists> {
 
     @Autowired
     listsDao dao;
+
+    @Autowired
+    itemDao iDao;
 
     @Override
     public Lists findOne(Lists lists) {
@@ -40,5 +44,18 @@ public class ListService implements Service<Lists> {
         return dao.save(lists);
     }
 
+    public List<Item> compareLists(Lists lists){
+        List<Item> better = new ArrayList<>();
+        for(Item i: lists.getItems()){
+            List<Item> samename = iDao.findByItemName(i.getitemName());
+            for(Item j: samename){
+                if(j.getitemPrice() < i.getitemPrice()){
+                    better.add(j);
+                }
+            }
+        }
 
+        return better;
+
+    }
 }

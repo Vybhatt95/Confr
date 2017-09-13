@@ -52,6 +52,15 @@ public class UserService implements Service<User> {
             }
         }
     }
+
+    public boolean usernameInUse(String username){
+        User u = dao.findByUserName(username);
+        if(u==null) {
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
 
 
