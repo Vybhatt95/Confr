@@ -26,7 +26,10 @@ public class UserController {
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String registerUser(@RequestBody User user){
         ObjectMapper mapper = new ObjectMapper();
+//        if(!service.usernameInUse(user.getuserName())){
         service.insert(user);
+//            user = null;
+//        }
         String ret = null;
 
         try{

@@ -17,12 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @SpringBootApplication(exclude = org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class)
 public class DemoApplication {
 
-    @Autowired
-    Userdao dao;
-
-
-
-
     public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}

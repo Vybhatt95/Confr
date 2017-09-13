@@ -5,7 +5,7 @@ app.component('login', {
     controller: LoginController
 })
 
-function LoginController($http, $location) {
+function LoginController($http, $location, UserService) {
     var ctrl = this;
 
     ctrl.message = "";
@@ -19,16 +19,17 @@ function LoginController($http, $location) {
             console.log(response)
               if(response.data){
                 if(response.data != null){
+                  UserService.storeUser(response.data);
                   $location.path('/home');
                 }
                 else{
                   $location.path('/');
-                  ctrl.message = "Username/password may be wrong"
+                  ctrl.message = "Invalid Username or Password"
                 }
               }
               else {
 
-                 ctrl.message = "Username/password may be wrong"
+                 ctrl.message = "Invalid Username or Password"
                 console.log("No response from host")
               }
         });

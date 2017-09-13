@@ -1,13 +1,34 @@
+<link rel="stylesheet" href="app.css/search.css">
+<div class="container" id="searchComp" layout="column" layout-align="start">
+  <h1 id="title">Item Lookup</h1>
+  <form layout="row" layout-align="space-around center">
+    <md-input-container layout="row" layout-align="start center">
+        <span>Pick an item: </span>
+      <select ng-model="$ctrl.itemID">
+        <option ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
+      </select>
+    </md-input-container>
 
-         <div class="container">
-           <div class="vertical-align-wrap">
-             <div class="vertical-align vertical-align--middle">
+    <md-input-container layout="row" layout-align="start center">
+        <span>Pick a store: </span>
+      <select ng-model="$ctrl.storeID">
+        <option ng-value="store" ng-repeat="store in $ctrl.storeList">{{store}}</option>
+      <select>
+    </md-input-container>
 
-                       <md-input-container md-no-float class="md-accent" flex="50" style="padding-bottom:0px;margin-left:25px">
-                           <md-icon  class="material-icons">&#xE8B6;</md-icon>
-                           <input ng-model="searchInput" placeholder="Search here" style="padding-left:25px;margin-left:5px">
-                        </md-input-container>
+    <md-input-container layout="row" layout-align="start center">
+        <span>Price:</span>
+        <span class="symbol" layout="row" layout-align="start center">$<input type="number" step="0.01" min="0" id="price" ng-model="$ctrl.newPrice"></span>
+    </md-input-container>
+  </form>
 
-             </div>
-           </div>
-         </div>
+  <div layout="row" layout-align="start">
+      <md-button ng-click="$ctrl.findPrice()" class="md-raised" id="search">
+        Lookup
+      </md-button> 
+      <md-button ng-click="$ctrl.updatePrice()" class="md-raised" id="update">
+        Update
+      </md-button>
+  </div>
+
+</div>

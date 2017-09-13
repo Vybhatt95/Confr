@@ -29,16 +29,6 @@ public class Item {
         this.stores = stores;
     }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "itemId=" + itemId +
-                ", itemName='" + itemName + '\'' +
-                ", itemPrice=" + itemPrice +
-                ", barcode=" + barcode +
-                '}';
-    }
-
     @Id
     @GenericGenerator(name="itemIdGen",strategy = "increment")
     @GeneratedValue(generator = "itemIdGen")

@@ -59,6 +59,10 @@ public class ListsController {
         //list.setUser(u);
         //list.setuserId(4);
         lService.insert(list);
+        List<Lists> ul = u.getLists();
+        ul.add(list);
+        u.setLists(ul);
+        session.setAttribute("user",u);
         try{
             ret = mapper.writeValueAsString(list);
         }catch (JsonProcessingException e){

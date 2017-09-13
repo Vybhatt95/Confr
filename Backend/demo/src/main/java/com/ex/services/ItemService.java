@@ -42,4 +42,9 @@ public class ItemService implements Service<Item> {
         List<Item> list = dao.findByItemName(name);
         return list;
     }
+
+    public List<Item> findAll(){
+        List<Item> list = dao.findAll();
+        return list;
+    }
 }
