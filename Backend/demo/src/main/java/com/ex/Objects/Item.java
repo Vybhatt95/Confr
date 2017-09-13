@@ -10,11 +10,23 @@ import javax.persistence.*;
 public class Item {
     private int itemId;
     private String itemName;
-    private String itemPrice;
+    private double itemPrice;
     private int barcode;
+
+    private Store_Front stores;
 
     public Item(){}
 
+
+    @OneToOne
+    @JoinColumn(name= "STOREID")
+    public Store_Front getStores() {
+        return stores;
+    }
+
+    public void setStores(Store_Front stores) {
+        this.stores = stores;
+    }
 
     @Id
     @GenericGenerator(name="itemIdGen",strategy = "increment")
@@ -38,11 +50,11 @@ public class Item {
     }
 
     @Column(name="ITEMPRICE")
-    public String getitemPrice() {
+    public double getitemPrice() {
         return itemPrice;
     }
 
-    public void setitemPrice(String itemPrice) {
+    public void setitemPrice(double itemPrice) {
         this.itemPrice = itemPrice;
     }
 

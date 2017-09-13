@@ -60,7 +60,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    @Column(name = "USERNAME")
+
+    @Column(name = "USERNAME",unique = true)
     public String getuserName() {
         return userName;
     }
@@ -69,7 +70,7 @@ public class User {
         this.userName = userName;
     }
 
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL",unique = true)
     public String getEmail() {
         return email;
     }

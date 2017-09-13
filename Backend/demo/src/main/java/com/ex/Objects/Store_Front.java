@@ -16,19 +16,7 @@ public class Store_Front {
     private String storeCity;
     private String storeState;
     private String storeZip;
-    private List<Item> items;
 
-
-
-    @ManyToMany
-    @JoinTable(name = "STORE_JUNCTION", joinColumns = {@JoinColumn(name = "STOREID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 
     @Id
     @GenericGenerator(name="storeIdGen",strategy = "increment")
