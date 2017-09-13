@@ -15,19 +15,19 @@ public class Store_Front {
     private String storeAddress;
     private String storeCity;
     private String storeState;
-    private String storeZip;
-    private List<Item> items;
+    private int storeZip;
 
 
-
-    @ManyToMany
-    @JoinTable(name = "STORE_JUNCTION", joinColumns = {@JoinColumn(name = "STOREID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
+    @Override
+    public String toString() {
+        return "Store_Front{" +
+                "storeId=" + storeId +
+                ", storeName='" + storeName + '\'' +
+                ", storeAddress='" + storeAddress + '\'' +
+                ", storeCity='" + storeCity + '\'' +
+                ", storeState='" + storeState + '\'' +
+                ", storeZip=" + storeZip +
+                '}';
     }
 
     @Id
@@ -79,11 +79,11 @@ public class Store_Front {
     }
 
     @Column(name = "STOREZIP")
-    public String getstoreZip() {
+    public int getstoreZip() {
         return storeZip;
     }
 
-    public void setstoreZip(String storeZip) {
+    public void setstoreZip(int storeZip) {
         this.storeZip = storeZip;
     }
 }
