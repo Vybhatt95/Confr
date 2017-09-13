@@ -87,7 +87,8 @@ public class User {
         this.passWord = passWord;
     }
 
-    @OneToMany(mappedBy = "user",fetch=FetchType.EAGER)
+    @OneToMany(fetch=FetchType.EAGER)
+    @JoinColumn(name = "USERID")
     public List<Lists> getLists(){
         return lists;
     }

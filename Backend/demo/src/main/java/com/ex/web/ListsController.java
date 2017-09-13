@@ -56,7 +56,7 @@ public class ListsController {
         String ret = null;
         Lists list = new Lists();
         list.setlistName(li.getlistName());
-        list.setUser(u);
+        //list.setUser(u);
         //list.setuserId(4);
         lService.insert(list);
         try{

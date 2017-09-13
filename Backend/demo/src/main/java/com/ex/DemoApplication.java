@@ -27,7 +27,7 @@ public class DemoApplication {
     public class HomeContoller {
         @RequestMapping("/")
         public String index() {
-            return "something.html";
+            return "index.html";
         }
     }
 
