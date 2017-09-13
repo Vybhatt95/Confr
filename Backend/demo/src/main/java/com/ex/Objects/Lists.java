@@ -13,7 +13,6 @@ public class Lists {
     private int listId;
     private String listName;
     private int listTotal;
-    private User user;
     private List<Item> items;
 
 
@@ -57,13 +56,5 @@ public class Lists {
         this.listTotal = listTotal;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "USERID", nullable=false)
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
