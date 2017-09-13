@@ -15,9 +15,27 @@ public class Store_Front {
     private String storeAddress;
     private String storeCity;
     private String storeState;
+<<<<<<< HEAD
     private String storeZip;
 
 
+=======
+    private int storeZip;
+
+
+    @Override
+    public String toString() {
+        return "Store_Front{" +
+                "storeId=" + storeId +
+                ", storeName='" + storeName + '\'' +
+                ", storeAddress='" + storeAddress + '\'' +
+                ", storeCity='" + storeCity + '\'' +
+                ", storeState='" + storeState + '\'' +
+                ", storeZip=" + storeZip +
+                '}';
+    }
+
+>>>>>>> 151a1dff84eacb87d10ec1ea549050f55231e2db
     @Id
     @GenericGenerator(name="storeIdGen",strategy = "increment")
     @GeneratedValue(generator = "storeIdGen")
@@ -67,11 +85,11 @@ public class Store_Front {
     }
 
     @Column(name = "STOREZIP")
-    public String getstoreZip() {
+    public int getstoreZip() {
         return storeZip;
     }
 
-    public void setstoreZip(String storeZip) {
+    public void setstoreZip(int storeZip) {
         this.storeZip = storeZip;
     }
 }
