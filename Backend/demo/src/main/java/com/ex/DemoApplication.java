@@ -21,25 +21,13 @@ public class DemoApplication {
     Userdao dao;
 
 
-    @Autowired
-    itemDao daoitem;
-    @Autowired
-    store_FrontDao daostore;
+
 
     public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-    @Bean
-    public CommandLineRunner runner(){
-        return args -> {
 
-            System.out.println(daostore.findOne(1));
-
-            Item c = daoitem.findOne(1);
-            System.out.println(c);
-        };
-    }
 
     //Example mapping to the root
     @Controller
