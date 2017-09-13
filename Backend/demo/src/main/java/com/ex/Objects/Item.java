@@ -20,11 +20,7 @@ public class Item {
 
 
     @OneToOne
-<<<<<<< HEAD
-    @JoinColumn(name= "STOREID")
-=======
     @JoinColumn(name = "STOREID")
->>>>>>> 151a1dff84eacb87d10ec1ea549050f55231e2db
     public Store_Front getStores() {
         return stores;
     }
@@ -33,19 +29,6 @@ public class Item {
         this.stores = stores;
     }
 
-<<<<<<< HEAD
-=======
-    @Override
-    public String toString() {
-        return "Item{" +
-                "itemId=" + itemId +
-                ", itemName='" + itemName + '\'' +
-                ", itemPrice=" + itemPrice +
-                ", barcode=" + barcode +
-                '}';
-    }
-
->>>>>>> 151a1dff84eacb87d10ec1ea549050f55231e2db
     @Id
     @GenericGenerator(name="itemIdGen",strategy = "increment")
     @GeneratedValue(generator = "itemIdGen")

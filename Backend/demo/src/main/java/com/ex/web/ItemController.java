@@ -42,8 +42,7 @@ public class ItemController {
         return ret;
     }
 
-    @RequestMapping(path="/all",method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path="/all",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllItems(){
         ObjectMapper mapper = new ObjectMapper();
         List<Item> list = service.findAll();
@@ -62,10 +61,12 @@ public class ItemController {
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public String updaateItem(@RequestBody Item i){
         ObjectMapper mapper = new ObjectMapper();
-        service.update(i);
+        Item j = service.findOne(i);
+        j.setitemPrice(i.getitemPrice());
+        service.update(j);
         String ret = null;
         try{
-            ret = mapper.writeValueAsString(i);
+            ret = mapper.writeValueAsString(j);
         }catch (JsonProcessingException e){
             e.printStackTrace();
         }

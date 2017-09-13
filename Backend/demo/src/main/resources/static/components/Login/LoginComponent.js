@@ -5,7 +5,7 @@ app.component('login', {
     controller: LoginController
 })
 
-function LoginController($http, $location) {
+function LoginController($http, $location, UserService) {
     var ctrl = this;
 
     ctrl.message = "";
@@ -19,6 +19,7 @@ function LoginController($http, $location) {
             console.log(response)
               if(response.data){
                 if(response.data != null){
+                  UserService.storeUser(response.data);
                   $location.path('/home');
                 }
                 else{

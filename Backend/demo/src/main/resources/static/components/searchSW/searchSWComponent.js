@@ -12,12 +12,27 @@ function searchSWController($http, ItemService){
   ctrl.storeList = ItemService.storeNames;
 
   ctrl.$onInit = function() {
-      console.log("Hello");
+    console.log("Hello");
+
+    
+    if(ItemService.inventory.length <= 0) {
+      console.log("Sending Request");
+      $http({
+        url: "http://localhost:8080/item/all",
+        method: "GET",
+        headers: {'Content-Type' : 'application/json'}
+      }).then(function(response) {
+        ItemService.storeInventory(response.data);
+        console.log("All Items Processed");
+      }), function() {
+        console.log("This method is a failure");
+      }
+    }
   }
 
   ctrl.updatePrice = function() {
     ctrl.newItem = {
-      itemID: ItemService.getIndex(ctrl.itemID, ctrl.storeID),
+      itemId: ItemService.getIndex(ctrl.itemID, ctrl.storeID),
       itemPrice: ctrl.newPrice
     }
 
@@ -36,6 +51,6 @@ function searchSWController($http, ItemService){
 
   ctrl.findPrice = function() {
     console.log(ctrl.itemID + ctrl.storeID);;
-    ItemService.getPrice(ctrl.itemID, ctrl.storeID);
+    ctrl.newPrice = ItemService.getPrice(ctrl.itemID, ctrl.storeID);
   }
 }

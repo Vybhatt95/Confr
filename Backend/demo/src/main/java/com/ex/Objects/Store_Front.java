@@ -15,11 +15,6 @@ public class Store_Front {
     private String storeAddress;
     private String storeCity;
     private String storeState;
-<<<<<<< HEAD
-    private String storeZip;
-
-
-=======
     private int storeZip;
 
 
@@ -35,7 +30,6 @@ public class Store_Front {
                 '}';
     }
 
->>>>>>> 151a1dff84eacb87d10ec1ea549050f55231e2db
     @Id
     @GenericGenerator(name="storeIdGen",strategy = "increment")
     @GeneratedValue(generator = "storeIdGen")
