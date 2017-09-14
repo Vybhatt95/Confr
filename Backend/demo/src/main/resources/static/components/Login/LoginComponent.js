@@ -19,6 +19,7 @@ function LoginController($http, $location, UserService) {
             console.log(response)
               if(response.data){
                 if(response.data != null){
+                  console.log(response.data);
                   UserService.storeUser(response.data);
                   $location.path('/home');
                 }

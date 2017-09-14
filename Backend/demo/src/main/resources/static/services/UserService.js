@@ -3,8 +3,6 @@ var app = angular.module('app');
 app.service('UserService', function() {
     var ctrl = this;
     ctrl.currUser = {
-        username: "a",
-        password: "a"
     };
 
     ctrl.storeUser = function(user) {
@@ -12,10 +10,10 @@ app.service('UserService', function() {
     }
 
     ctrl.getCurrentUserName = function() {
-        return ctrl.currUser.username;
+        return ctrl.currUser.userName;
     }
 
     ctrl.getCurrentPassword = function() {
-        return ctrl.currUser.password;
+        return ctrl.currUser.passWord;
     }
 })
