@@ -98,5 +98,33 @@ public class ListsController {
         return null;
     }
 
+    @RequestMapping(path="/remove", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    public String removeList(@RequestBody Lists l){
+        ObjectMapper mapper = new ObjectMapper();
+        Lists list = lService.delete(l);
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch(JsonProcessingException e){
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    @RequestMapping(path="/all", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE )
+    public String getAllLists(){
+        ObjectMapper mapper = new ObjectMapper();
+        List<Lists> list = lService.findAllLists();
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by jeremy on 9/8/2017.
@@ -86,6 +87,21 @@ public class UserController {
         try{
             ret = mapper.writeValueAsString(u);
         } catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
+
+    @RequestMapping(path="/all", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String allUsers(){
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> list = service.findAll();
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch (JsonProcessingException e){
             e.printStackTrace();
         }
 

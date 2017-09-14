@@ -5,6 +5,8 @@ import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by jeremy on 9/8/2017.
  */
@@ -60,6 +62,10 @@ public class UserService implements Service<User> {
         }else{
             return true;
         }
+    }
+
+    public List<User> findAll(){
+       return dao.findAll();
     }
 }
 

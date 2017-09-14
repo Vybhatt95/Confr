@@ -42,7 +42,7 @@ function searchSWController($http, ItemService){
       headers: {'Content-Type' : 'application/json'},
       data: JSON.stringify(ctrl.newItem)
     }).then(function(response) {
-      ItemService.updatePrice(ctrl.newItem.itemID, ctrl.newPrice);
+      ItemService.updatePrice(ctrl.newItem.itemId, ctrl.newPrice);
       alert("Item has been updated.")
     }), function(){
       alert("This is broken");
