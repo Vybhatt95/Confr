@@ -6,7 +6,7 @@
 <div class="divbody body">
   <md-toolbar layout="row" id="light" class="input  ">
           <div class="md-toolbar-tools banner-title">
-            <input type="text" placeholder="New Folder" class="input" ng-model="$ctrl.listtitle" value="{{ctrl.listtitle}}" />
+            <input type="text" placeholder="List Name" class="input" ng-model="$ctrl.listName" value="{{ctrl.listName}}" />
           </div>
       </md-toolbar>
             <md-content layout="row" class="raleway">
@@ -19,15 +19,17 @@
 
                     <md-list-item>
                       <h3>
-                        <input list="browsers" name="browser" ng-model="$ctrl.val" class="input" placeholder="Search Item">
-                        <datalist id="browsers"  >
-                          <option  ng-repeat="x in $ctrl.productsToAdd" value="{{x.itemname}}">
-                        </datalist>
+                        <select ng-model="$ctrl.itemID">
+                          <option ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
+                        </select>
                       </h3>
                       </md-list-item>
 
 
-                    <md-list-item><button class="md-raised md-button yellow" ng-click="$ctrl.addItem($ctrl.val)">+ Add New Item</button></md-list-item>
+                    <md-list-item>
+                      <button class="md-raised md-button yellow" ng-click="$ctrl.addItem($ctrl.itemID)">+ Add New Item</button>
+                      <button class="md-raised md-button yellow" ng-click="$ctrl.saveList)">+ Save List</button>
+                    </md-list-item>
                 </md-list>
 
             </md-content>
