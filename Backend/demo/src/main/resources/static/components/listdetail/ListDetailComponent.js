@@ -5,16 +5,23 @@ app.component('listdetail',{
     controller: ListDetailController
 })
 
-function ListDetailController(ListService){
+function ListDetailController(ListService,ItemService){
     var ctrl = this;
-
-
+    ctrl.itemList = ItemService.itemNames;
+    ctrl.storeList = ItemService.storeNames;
+    
     ctrl.list = ListService.lists;
+     console.log(ctrl.list[0].listName);
+    // ctrl.items = ctrl.list[0].items[0];
+    // console.log("YOOO");
+    //
+    // console.log(ctrl.items);
+    ctrl.listItems = ctrl.list["0"].items;
 
-    ctrl.items = ctrl.list[0].items[0];
-    console.log("YOOO");
+    console.log(ctrl.listItems[0]);
 
-    console.log(ctrl.items.itemName);
+
+
 
 
 
