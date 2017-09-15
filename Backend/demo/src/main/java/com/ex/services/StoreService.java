@@ -2,6 +2,7 @@ package com.ex.services;
 
 import com.ex.Dao.store_FrontDao;
 import com.ex.Objects.Store_Front;
+import org.apache.catalina.Store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -42,4 +43,5 @@ public class StoreService implements Service<Store_Front> {
     public List<Store_Front> findAll(){
         return dao.findAll();
     }
+
 }
