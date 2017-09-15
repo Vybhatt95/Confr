@@ -12,9 +12,19 @@ import java.util.List;
 public class Lists {
     private int listId;
     private String listName;
-    private int listTotal;
+    private double listTotal;
     private List<Item> items;
+    private int userId;
 
+
+    @Column(name = "USERID")
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
@@ -48,11 +58,11 @@ public class Lists {
     }
 
     @Column(name = "LISTTOTAL")
-    public int getlistTotal() {
+    public double getlistTotal() {
         return listTotal;
     }
 
-    public void setlistTotal(int listTotal) {
+    public void setlistTotal(double listTotal) {
         this.listTotal = listTotal;
     }
 
