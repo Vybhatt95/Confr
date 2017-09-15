@@ -5,9 +5,12 @@ import com.ex.Objects.Lists;
 import com.ex.Objects.User;
 import com.ex.services.ItemService;
 import com.ex.services.ListService;
+import com.ex.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,8 +32,11 @@ public class ListsController {
     @Autowired
     ListService lService;
 
-//    @Autowired
-//    ItemService iService;
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    ItemService iService;
 
 //    @RequestMapping(path="/",method = RequestMethod.POST,
 //            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -53,11 +60,16 @@ public class ListsController {
 
         ObjectMapper mapper = new ObjectMapper();
         User u = (User)session.getAttribute("user");
+        //User u = userService.findById(7);
         String ret = null;
         Lists list = new Lists();
+<<<<<<< HEAD
         list.setlistName(li.getlistName());
         //list.setUser(u);
         list.setUserId(4);
+=======
+        list.setUserId(u.getuserId());
+>>>>>>> 49c6c1cd866b82260757b8c8cb1d33c3b27a4acb
         lService.insert(list);
         List<Lists> ul = u.getLists();
         ul.add(list);
@@ -72,16 +84,39 @@ public class ListsController {
         return ret;
 
     }
+    
 
     @RequestMapping(path="/additem", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
-    public String addItemToList(@RequestBody Item i,@RequestBody Lists l, HttpSession session){
+    public String addItemToList(@RequestBody String json, HttpSession session){
+
         ObjectMapper mapper = new ObjectMapper();
+        JsonNode root;
+        Lists l = null;
+        Item i = null;
+        try {
+            root = mapper.readTree(json);
+            JsonNode lnode = root.path("list");
+            JsonNode inode = root.path("item");
+            l = mapper.treeToValue(lnode,Lists.class);
+            l = lService.findOne(l);
+            i = mapper.treeToValue(inode,Item.class);
+            i = iService.findOne(i);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+//        Lists l = root.path("list");
+//        Item i = json.get(1);
+        System.out.println(i);
         User u = (User)session.getAttribute("user");
         String ret = null;
         List<Item> itms = l.getItems();
         itms.add(i);
+        double price = i.getitemPrice();
+        double total = l.getlistTotal();
+        total += price;
         l.setItems(itms);
+        l.setlistTotal(total);
         lService.update(l);
         try{
             ret = mapper.writeValueAsString(l);
@@ -98,5 +133,42 @@ public class ListsController {
         return null;
     }
 
+    @RequestMapping(path="/remove", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    public String removeList(@RequestBody Lists l){
+        ObjectMapper mapper = new ObjectMapper();
+        Lists list = lService.delete(l);
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch(JsonProcessingException e){
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    @RequestMapping(path="/all", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE )
+    public String getAllLists(){
+        ObjectMapper mapper = new ObjectMapper();
+        List<Lists> list = lService.findAllLists();
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
+
+    @RequestMapping(path="/average", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    public String getAverageGraphData(HttpSession session){
+        ObjectMapper mapper = new ObjectMapper();
+        User u = (User)session.getAttribute("user");
+
+        return null;
+    }
 
 }

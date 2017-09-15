@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by jeremy on 9/8/2017.
@@ -90,5 +91,27 @@ public class UserController {
         }
 
         return ret;
+    }
+
+    @RequestMapping(path="/all", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.APPLICATION_JSON_VALUE)
+    public String allUsers(){
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> list = service.findAll();
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(list);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+
+        return ret;
+    }
+
+    @RequestMapping(path="/logout", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.TEXT_PLAIN_VALUE)
+    public String logoutUser(HttpSession session){
+        session.removeAttribute("user");
+        return "Logged out";
     }
 }

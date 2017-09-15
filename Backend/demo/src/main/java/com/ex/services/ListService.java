@@ -35,8 +35,9 @@ public class ListService implements Service<Lists> {
 
     @Override
     public Lists delete(Lists lists) {
+        Lists ret = findOne(lists);
         dao.delete(lists);
-        return lists;
+        return ret;
     }
 
     @Override
@@ -57,5 +58,10 @@ public class ListService implements Service<Lists> {
 
         return better;
 
+    }
+
+    public List<Lists> findAllLists(){
+        List<Lists> list = dao.findAll();
+        return list;
     }
 }
