@@ -14,7 +14,17 @@ public class Lists {
     private String listName;
     private double listTotal;
     private List<Item> items;
+    private int userId;
 
+
+    @Column(name = "USERID")
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "LIST_JUNCTION", joinColumns ={@JoinColumn(name = "LISTID")}, inverseJoinColumns = {@JoinColumn(name = "ITEMID")})
