@@ -12,7 +12,7 @@ import java.util.List;
 public class Lists {
     private int listId;
     private String listName;
-    private int listTotal;
+    private double listTotal;
     private List<Item> items;
 
 
@@ -48,11 +48,11 @@ public class Lists {
     }
 
     @Column(name = "LISTTOTAL")
-    public int getlistTotal() {
+    public double getlistTotal() {
         return listTotal;
     }
 
-    public void setlistTotal(int listTotal) {
+    public void setlistTotal(double listTotal) {
         this.listTotal = listTotal;
     }
 
