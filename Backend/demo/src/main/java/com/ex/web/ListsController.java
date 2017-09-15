@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -78,7 +79,7 @@ public class ListsController {
         return ret;
 
     }
-    
+
 
     @RequestMapping(path="/additem", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
@@ -161,8 +162,28 @@ public class ListsController {
     public String getAverageGraphData(HttpSession session){
         ObjectMapper mapper = new ObjectMapper();
         User u = (User)session.getAttribute("user");
+        //User u = userService.findById(1);
+        double ua = lService.listAverage(u.getLists());
+        double avgAll = lService.allAverage();
 
-        return null;
+        ArrayNode arrayNode = mapper.createArrayNode();
+        ObjectNode objectNode = mapper.createObjectNode();
+        objectNode.put("label","Users Average");
+        objectNode.put("value",ua);
+
+        ObjectNode objectNode1 = mapper.createObjectNode();
+        objectNode1.put("label","Average of All Lists");
+        objectNode1.put("value",avgAll);
+
+        arrayNode.add(objectNode);
+        arrayNode.add(objectNode1);
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(arrayNode);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
+        return ret;
     }
 
 }
