@@ -5,9 +5,10 @@ app.component('home',{
     controller: homeController
 })
 
-function homeController($mdSidenav, $mdDialog, $location, $http, ListService) {
+function homeController($mdSidenav, $mdDialog, $location, $http, ListService, UserService) {
   var ctrl = this;
 
+  ctrl.currentNavItem="page1";
   ctrl.$onInit = function() {
       console.log("wassip");
   }
@@ -18,12 +19,7 @@ function homeController($mdSidenav, $mdDialog, $location, $http, ListService) {
     url: 'http://localhost:8080/users/user',
     method: 'GET'
   }).then(function(response){
-
     ctrl.currentUser = response.data;
-    ListService.lists = response.data.lists;
-
-   
-
   },function(response){
   })
 
@@ -53,11 +49,23 @@ function homeController($mdSidenav, $mdDialog, $location, $http, ListService) {
 
   //Methods for the navbar
   ctrl.goto = function(page){
-  this.pages = page;
-  console.log(page);
+    ctrl.currentNavItem = page;
+    ctrl.pages = page;
+    console.log(page);
   }
 
   ctrl.logout = function() {
-    $location.path("/");
+    $http({
+      url: "http://localhost:8080/users/logout",
+      method: "GET",
+    }).then(function(response){
+      alert(response.data);
+      console.log("logging out");
+      $location.path("/");
+      ListService.lists = [];
+      UserService.currUser = {};
+    }), function(response) {
+      console.log("log out failed");
+    }
   }
 }

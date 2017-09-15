@@ -55,17 +55,17 @@
       </h1>
 
     <div class="navbar" id="navbarpadding">
-        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" >
+        <md-nav-bar md-selected-nav-item="$ctrl.currentNavItem" nav-bar-aria-label="navigation links" >
 
-         <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1" >
+         <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1">
           <i class="material-icons">home</i>
          </md-nav-item>
 
-         <md-nav-item md-nav-click="$ctrl.goto('createList')" name="page2"  >
+         <md-nav-item md-nav-click="$ctrl.goto('createList')" name="createList">
            <i class="material-icons">create</i>
          </md-nav-item>
 
-         <md-nav-item md-nav-click="$ctrl.goto('analysis')" name="page3" >
+         <md-nav-item md-nav-click="$ctrl.goto('analysis')" name="analysis">
            <i class="material-icons">graphic_eq</i>
          </md-nav-item>
          <md-nav-item md-nav-click="$ctrl.goto('search')" name="search">
@@ -95,7 +95,7 @@
     <search-sw></search-sw>
     </div>
     <div ng-switch-default>
-       <list-sw></list-sw>
+       <list-sw ng-click="$ctrl.goto('createList')"></list-sw>
     </div>
 
   </div>

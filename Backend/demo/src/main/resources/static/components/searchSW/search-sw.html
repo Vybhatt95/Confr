@@ -5,7 +5,7 @@
     <md-input-container layout="row" layout-align="start center">
         <span>Pick an item: </span>
       <select ng-model="$ctrl.itemID">
-        <option ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
+        <option ng-value="item" ng-repeat="item in $ctrl.itemList | orderBy: 'toString()'">{{item}}</option>
       </select>
     </md-input-container>
 
@@ -18,7 +18,7 @@
 
     <md-input-container layout="row" layout-align="start center">
         <span>Price:</span>
-        <span class="symbol" layout="row" layout-align="start center">$<input type="number" step="0.01" min="0" id="price" ng-model="$ctrl.newPrice"></span>
+        <span class="symbol" layout="row" layout-align="start center">$<input type="text" id="price" ng-model="$ctrl.newPrice"></span>
     </md-input-container>
   </form>
 

@@ -5,7 +5,7 @@ app.component('login', {
     controller: LoginController
 })
 
-function LoginController($http, $location, UserService) {
+function LoginController($http, $location, UserService, ListService) {
     var ctrl = this;
 
     ctrl.message = "";
@@ -16,11 +16,11 @@ function LoginController($http, $location, UserService) {
         }
 
         $http.post('http://localhost:8080/users/login',JSON.stringify(ctrl.credentials)).then(function(response){
-            console.log(response)
               if(response.data){
                 if(response.data != null){
                   console.log(response.data);
                   UserService.storeUser(response.data);
+                  ListService.lists = response.data.lists
                   $location.path('/home');
                 }
                 else{

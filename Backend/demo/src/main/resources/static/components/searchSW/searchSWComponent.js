@@ -11,6 +11,7 @@ function searchSWController($http, ItemService){
   ctrl.itemList = ItemService.itemNames;
   ctrl.storeList = ItemService.storeNames;
 
+
   ctrl.$onInit = function() {
     console.log("Hello");
 
@@ -23,6 +24,8 @@ function searchSWController($http, ItemService){
         headers: {'Content-Type' : 'application/json'}
       }).then(function(response) {
         ItemService.storeInventory(response.data);
+        console.log(ctrl.itemList);
+        console.log(ctrl.storeList);
         console.log("All Items Processed");
       }), function() {
         console.log("This method is a failure");
@@ -33,7 +36,7 @@ function searchSWController($http, ItemService){
   ctrl.updatePrice = function() {
     ctrl.newItem = {
       itemId: ItemService.getIndex(ctrl.itemID, ctrl.storeID),
-      itemPrice: ctrl.newPrice
+      itemPrice: parseFloat(ctrl.newPrice)
     }
 
     $http({
@@ -42,7 +45,9 @@ function searchSWController($http, ItemService){
       headers: {'Content-Type' : 'application/json'},
       data: JSON.stringify(ctrl.newItem)
     }).then(function(response) {
-      ItemService.updatePrice(ctrl.newItem.itemId, ctrl.newPrice);
+      ItemService.updatePrice(ctrl.newItem.itemId, parseFloat(ctrl.newPrice));
+      ctrl.itemList = ItemService.itemNames;
+      ctrl.storeList = ItemService.storeNames;
       alert("Item has been updated.")
     }), function(){
       alert("This is broken");
@@ -51,6 +56,6 @@ function searchSWController($http, ItemService){
 
   ctrl.findPrice = function() {
     console.log(ctrl.itemID + ctrl.storeID);;
-    ctrl.newPrice = ItemService.getPrice(ctrl.itemID, ctrl.storeID);
+    ctrl.newPrice = parseFloat(Math.round(ItemService.getPrice(ctrl.itemID, ctrl.storeID) * 100) / 100).toFixed(2);
   }
 }

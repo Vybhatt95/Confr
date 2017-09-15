@@ -10,8 +10,9 @@ app.service('ListService', function() {
     }
 
     ctrl.deleteList = function(index) {
-        if(index >= 0) {
-            ctrl.lists.splice(index, 1);
+        if(index != null) {
+            console.log("spliced list");
+            ctrl.lists.splice(ctrl.lists.indexOf(index), 1);
         }
     }
 })

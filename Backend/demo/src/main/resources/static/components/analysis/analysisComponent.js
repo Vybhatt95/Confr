@@ -11,8 +11,8 @@ function AnalysisController() {
 
     ctrl.myDataSource = {
         chart: {
-            caption: "Harry's SuperMart",
-            subCaption: "Top 5 stores in last month by revenue",
+            caption: "Average Price of Your Purchases",
+            subCaption: "Your Lists vs. Everyone Else's",
         },
         data:[{
             label: "Bakersfield Central",
