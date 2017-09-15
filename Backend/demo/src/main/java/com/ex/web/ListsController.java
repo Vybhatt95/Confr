@@ -64,7 +64,14 @@ public class ListsController {
         //User u = userService.findById(7);
         String ret = null;
         Lists list = new Lists();
+
+        list.setlistName(li.getlistName());
+        //list.setUser(u);
+        //list.setUserId(4);
+
         list.setUserId(u.getuserId());
+        list.setItems(li.getItems());
+        list.setlistTotal(li.getlistTotal());
         lService.insert(list);
         List<Lists> ul = u.getLists();
         ul.add(list);

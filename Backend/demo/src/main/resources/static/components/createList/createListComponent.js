@@ -5,14 +5,17 @@ app.component('createlistSw', {
     controller: createListController
 })
 
-function createListController($http, ItemService){
+function createListController($http, ItemService, ListService){
       var ctrl = this;
 
       ctrl.newPrice = 0.00;
+
       ctrl.itemList = ItemService.itemNames;
+
       ctrl.storeList = ItemService.storeNames;
 
       ctrl.products = []
+
       console.log("CREATELISTCONTROLLER");
       console.log(ctrl.storeList);
 
@@ -35,6 +38,20 @@ function createListController($http, ItemService){
         }
 
 
+
+      }
+
+
+
+      ctrl.hasChanged = function (itemID){
+        console.log(itemID);
+          ctrl.priceStore=[];
+        for(var i =0; i<ctrl.storeList.length; i++){
+        ctrl.priceStore.push({"storeName": ctrl.storeList[i], "itemPrice" : ItemService.getPrice(itemID, ctrl.storeList[i])} );
+
+        }
+
+        console.log(ctrl.priceStore);
       }
 
       ctrl.findPrice = function() {
@@ -42,29 +59,62 @@ function createListController($http, ItemService){
         ctrl.newPrice = ItemService.getPrice(ctrl.itemID, ctrl.storeID);
       }
 
+      ctrl.listTitle;
+      ctrl.addItem = function(itemName, storeID, listName){
+          ctrl.listTitle = listName;
+          ctrl.products.push({
 
-      ctrl.addItem = function(val){
-          console.log(val);
-          ctrl.products.push({"itemname": val});
+            "itemId" : ItemService.getIndex(itemName, storeID.storeName),
+            "itemName": itemName,
+            "itemPrice": storeID.itemPrice,
+            "barcode": 0,
+            "stores": {
+                  "storeName" : storeID.storeName
+            }
+
+        });
+
       }
 
-      ctrl.saveList = function(){
-          //Get total of the list:
+      ctrl.printList = function(){
+        console.log(ctrl.products);
+      }
 
 
-        ctr.listToSend = {
-          "listId" : 1,
-          "listName" : ctrl.listName,
-          "listTotal" : 500,
-          "items" : ctrl.products
+        ctrl.getTotal = function(){
+        ctrl.getTotalPrice = 0;
+        for(var i=0; i<ctrl.products.length;i++){
+            ctrl.getTotalPrice+= ctrl.products[i].itemPrice;
+
+        }
+        console.log(ctrl.getTotalPrice);
+      }
+
+
+
+
+      ctrl.saveList = function(listName){
+        ctrl.data={
+            "listName" : listName,
+            "listTotal" : ctrl.getTotalPrice,
+            "items" : ctrl.products
+
         }
 
-          // $http.post('http://localhost:8080/lists/new',JSON.stringify(ctrl.listToSend))
-          //     .then(function(response){
-          //       if(response.data){
-          //         console.log(response.data)
-          //       }
-          //     })
+
+        console.log(ctrl.data);
+
+          //Get total of the list:
+      $http.post('http://localhost:8080/lists/new',JSON.stringify(ctrl.data))
+          .then(function(response){
+            if(response.data){
+              console.log(response.data)
+              ListService.addList(ctrl.data);
+            }
+            else{
+              console.log("bad errros")
+            }
+          })
 
       }
 
