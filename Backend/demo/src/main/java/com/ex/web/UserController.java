@@ -107,4 +107,11 @@ public class UserController {
 
         return ret;
     }
+
+    @RequestMapping(path="/logout", method={RequestMethod.GET, RequestMethod.POST}
+            , consumes="*/*", produces= MediaType.TEXT_PLAIN_VALUE)
+    public String logoutUser(HttpSession session){
+        session.removeAttribute("user");
+        return "Logged out";
+    }
 }
