@@ -5,9 +5,13 @@ import com.ex.Objects.Lists;
 import com.ex.Objects.User;
 import com.ex.services.ItemService;
 import com.ex.services.ListService;
+import com.ex.services.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,8 +33,11 @@ public class ListsController {
     @Autowired
     ListService lService;
 
-//    @Autowired
-//    ItemService iService;
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    ItemService iService;
 
 //    @RequestMapping(path="/",method = RequestMethod.POST,
 //            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -53,11 +61,10 @@ public class ListsController {
 
         ObjectMapper mapper = new ObjectMapper();
         User u = (User)session.getAttribute("user");
+        //User u = userService.findById(7);
         String ret = null;
         Lists list = new Lists();
-        list.setlistName(li.getlistName());
-        //list.setUser(u);
-        //list.setuserId(4);
+        list.setUserId(u.getuserId());
         lService.insert(list);
         List<Lists> ul = u.getLists();
         ul.add(list);
@@ -73,15 +80,38 @@ public class ListsController {
 
     }
 
+
     @RequestMapping(path="/additem", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
-    public String addItemToList(@RequestBody Item i,@RequestBody Lists l, HttpSession session){
+    public String addItemToList(@RequestBody String json, HttpSession session){
+
         ObjectMapper mapper = new ObjectMapper();
+        JsonNode root;
+        Lists l = null;
+        Item i = null;
+        try {
+            root = mapper.readTree(json);
+            JsonNode lnode = root.path("list");
+            JsonNode inode = root.path("item");
+            l = mapper.treeToValue(lnode,Lists.class);
+            l = lService.findOne(l);
+            i = mapper.treeToValue(inode,Item.class);
+            i = iService.findOne(i);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+//        Lists l = root.path("list");
+//        Item i = json.get(1);
+        System.out.println(i);
         User u = (User)session.getAttribute("user");
         String ret = null;
         List<Item> itms = l.getItems();
         itms.add(i);
+        double price = i.getitemPrice();
+        double total = l.getlistTotal();
+        total += price;
         l.setItems(itms);
+        l.setlistTotal(total);
         lService.update(l);
         try{
             ret = mapper.writeValueAsString(l);
@@ -124,6 +154,35 @@ public class ListsController {
             e.printStackTrace();
         }
 
+        return ret;
+    }
+
+    @RequestMapping(path="/average", method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    public String getAverageGraphData(HttpSession session){
+        ObjectMapper mapper = new ObjectMapper();
+        User u = (User)session.getAttribute("user");
+        //User u = userService.findById(1);
+        double ua = lService.listAverage(u.getLists());
+        double avgAll = lService.allAverage();
+
+        ArrayNode arrayNode = mapper.createArrayNode();
+        ObjectNode objectNode = mapper.createObjectNode();
+        objectNode.put("label","Users Average");
+        objectNode.put("value",ua);
+
+        ObjectNode objectNode1 = mapper.createObjectNode();
+        objectNode1.put("label","Average of All Lists");
+        objectNode1.put("value",avgAll);
+
+        arrayNode.add(objectNode);
+        arrayNode.add(objectNode1);
+        String ret = null;
+        try{
+            ret = mapper.writeValueAsString(arrayNode);
+        }catch (JsonProcessingException e){
+            e.printStackTrace();
+        }
         return ret;
     }
 

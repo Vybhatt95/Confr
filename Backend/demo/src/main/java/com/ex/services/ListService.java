@@ -64,4 +64,24 @@ public class ListService implements Service<Lists> {
         List<Lists> list = dao.findAll();
         return list;
     }
+
+    public double listAverage(List<Lists> list){
+        double sum = 0;
+
+        for(Lists l : list){
+            sum += l.getlistTotal();
+        }
+
+        return sum/(double)list.size();
+    }
+
+    public double allAverage(){
+        List<Lists> list = dao.findAll();
+        double sum = 0;
+        for(Lists l: list){
+            sum += l.getlistTotal();
+        }
+
+        return sum/(double)list.size();
+    }
 }
