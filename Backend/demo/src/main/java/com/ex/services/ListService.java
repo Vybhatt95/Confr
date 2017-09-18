@@ -8,6 +8,8 @@ import com.ex.Objects.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +74,7 @@ public class ListService implements Service<Lists> {
             sum += l.getlistTotal();
         }
 
-        return sum/(double)list.size();
+        return (double) Math.round(sum/(double)list.size() * 100d)/100d;
     }
 
     public double allAverage(){
@@ -82,6 +84,6 @@ public class ListService implements Service<Lists> {
             sum += l.getlistTotal();
         }
 
-        return sum/(double)list.size();
+        return (double) Math.round(sum/(double)list.size() * 100d)/100d;
     }
 }

@@ -57,7 +57,7 @@ function homeController($mdSidenav, $mdDialog, $location, $http, ListService, Us
   ctrl.logout = function() {
     $http({
       url: "http://localhost:8080/users/logout",
-      method: "GET",
+      method: "GET"
     }).then(function(response){
       alert(response.data);
       console.log("logging out");

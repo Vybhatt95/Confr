@@ -157,23 +157,22 @@ public class ListsController {
         return ret;
     }
 
-    @RequestMapping(path="/average", method = RequestMethod.POST,
-            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE )
+    @RequestMapping(path="/average", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE )
     public String getAverageGraphData(HttpSession session){
         ObjectMapper mapper = new ObjectMapper();
         User u = (User)session.getAttribute("user");
         //User u = userService.findById(1);
-        double ua = lService.listAverage(u.getLists());
-        double avgAll = lService.allAverage();
+        Double ua = lService.listAverage(u.getLists());
+        Double avgAll = lService.allAverage();
 
         ArrayNode arrayNode = mapper.createArrayNode();
         ObjectNode objectNode = mapper.createObjectNode();
         objectNode.put("label","Users Average");
-        objectNode.put("value",ua);
+        objectNode.put("value",ua.toString());
 
         ObjectNode objectNode1 = mapper.createObjectNode();
         objectNode1.put("label","Average of All Lists");
-        objectNode1.put("value",avgAll);
+        objectNode1.put("value",avgAll.toString());
 
         arrayNode.add(objectNode);
         arrayNode.add(objectNode1);

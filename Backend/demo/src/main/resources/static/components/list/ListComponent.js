@@ -4,7 +4,7 @@ app.component('listSw',{
     templateUrl: "components/list/list-sw.html",
     controller: ListController,
     bindings: {
-        onClick: "&"
+        onAddList: "&"
     }
 })
 
@@ -36,6 +36,6 @@ function ListController(listObj,$location,ListService, $http){
     }
     
     ctrl.goCreate = function() {
-        ctrl.onClick();
+        ctrl.onAddList();
     }
 }

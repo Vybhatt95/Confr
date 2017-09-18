@@ -1,12 +1,3 @@
-#Header {
-  background: linear-gradient(to right, #92C24C, #FFEEA8);
-  font-family: 'Allerta Stencil', sans-serif; }
-  #Header h1 {
-    color: #FFFADD;
-    font-size: 57px;
-    margin: 0; }
-#Charts {
-    text-align: center;
-    padding: 40px;
-    background-color: #FCD949;
+#averageChart {
+    margin:5% auto;
 }

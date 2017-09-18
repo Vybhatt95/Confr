@@ -13,7 +13,7 @@ app.config(function($routeProvider) {
         template: '<register></register>'
     })
     .when("/graphs",{
-        template: '<analysis></analysis>'
+        template: '<analysis-sw></analysis-sw>'
     })
     .when("/list",{
         template: '<list></list>'

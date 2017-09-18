@@ -5,68 +5,52 @@ app.component('analysisSw', {
     controller: AnalysisController
 })
 
-function AnalysisController() {
+function AnalysisController($http) {
     var ctrl = this;
     ctrl.listData = [];
+    ctrl.averageData = [];
 
-    ctrl.myDataSource = {
-        chart: {
-            caption: "Average Price of Your Purchases",
-            subCaption: "Your Lists vs. Everyone Else's",
-        },
-        data:[{
-            label: "Bakersfield Central",
-            value: "880000"
-        },
-        {
-            label: "Garden Groove harbour",
-            value: "730000"
-        },
-        {
-            label: "Los Angeles Topanga",
-            value: "590000"
-        },
-        {
-            label: "Compton-Rancho Dom",
-            value: "520000"
-        },
-        {
-            label: "Daly City Serramonte",
-            value: "330000"
-        }]
-      };
+    ctrl.$onInit = function() {
+        $http({
+            url: "http://localhost:8080/lists/average",
+            method: "POST"
+        }).then(function(response){
+            ctrl.averageData = response.data;
+            console.log(ctrl.averageData);
 
-      ctrl.myData = {
-        chart: {
-            caption: "Age profile of website visitors",
-            subcaption: "Last Year",
-            startingangle: "120",
-            showlabels: "0",
-            showlegend: "1",
-            enablemultislicing: "0",
-            slicingdistance: "15",
-            showpercentvalues: "1",
-            showpercentintooltip: "0",
-            plottooltext: "Age group : $label Total visit : $datavalue",
-            theme: "ocean"
-        },
-        data: [
-            {
-                label: "Teenage",
-                value: "1250400"
-            },
-            {
-                label: "Adult",
-                value: "1463300"
-            },
-            {
-                label: "Mid-age",
-                value: "1050700"
-            },
-            {
-                label: "Senior",
-                value: "491000"
-            }
-        ]
+            FusionCharts.ready(function() {
+                var avgChart = new FusionCharts({
+                    "type": "column2d",
+                    "renderAt": "averageChart",
+                    "width": "500",
+                    "height": "300",
+                    "dataFormat": "json",
+                    "dataSource": {
+                        "chart": {
+                            "caption": "Average Spending Comparison",
+                            "yAxisName": "Spending (In USD)",
+                            "theme": "ocean"
+                        },
+        
+                        "data": [
+                            {
+                                "label": ctrl.averageData[0].label,
+                                "value": ctrl.averageData[0].value
+                            },
+                            {
+                                "label": ctrl.averageData[1].label,
+                                "value": ctrl.averageData[1].value
+                            }
+                        ]
+                    }
+                });
+        
+                avgChart.render();
+            })
+        }), function(response) {
+            console.log(response.data);
+        }
     }
+
+
 }
