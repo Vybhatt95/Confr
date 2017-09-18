@@ -30,9 +30,11 @@ function ListController(listObj,$location,ListService, $http){
         }
     }
 
-    ctrl.getCompleteList = function(l){
-        listObj.setObj(l);
-        $location.path('/listdetail')
+
+    ctrl.getCompleteList = function(item, index){
+        listObj.setObj(index);
+        console.log(index);
+        $location.path('/listdetail').search({index: index})
     }
     
     ctrl.goCreate = function() {
