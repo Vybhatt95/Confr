@@ -4,23 +4,15 @@
 
         <md-content layout="row" class="raleway">
             <md-list flex>
-<<<<<<< HEAD
                 <md-list-item ng-if="$ctrl.list.length == 0">
                     <p>You have no lists. Create one to start saving!</p>
                 </md-list-item>
-                <md-list-item id="eachItem" ng-repeat="list in $ctrl.list" >
+                <md-list-item id="eachItem" ng-model="$index" ng-repeat="list in $ctrl.list" >
                     <!-- <div layout="row"> -->
                         <h3 flex="50">{{list.listName}}<h3>
                         <h4 flex="25">{{list.listTotal}}</h4>
-                        <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.getCompleteList(list)">Details</button>
+                        <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.getCompleteList(list, $index)">Details</button>
                         <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.removeList(list)">Remove</button>
-=======
-                <md-list-item id="eachItem" ng-model="$index" ng-repeat="item in $ctrl.list" >
-                    <!-- <div layout="row"> -->
-                        <h3 flex="50">{{item.listName}}<h3>
-                        <h4 flex="25">{{item.listTotal}}</h4>
-                        <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.getCompleteList(item, $index)">Details</button>
->>>>>>> 92f80d3da7bdc466ab60f9422e2590f221c809bf
                         <md-divider ></md-divider>
                     <!-- </div> -->
                 </md-list-item>

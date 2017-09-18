@@ -26,8 +26,6 @@ function ListDetailController(ListService,ItemService, $routeParams){
 
 
 
-
-
     ctrl.addItem = function(val){
         console.log(ctrl.val);
         ctrl.products.push({"itemname":ctrl.val});
