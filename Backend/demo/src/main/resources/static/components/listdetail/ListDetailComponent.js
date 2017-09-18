@@ -22,7 +22,7 @@ function ListDetailController(ListService,ItemService, $routeParams){
 
       console.log(ctrl.list[$routeParams.index].items);
       console.log(ctrl.list[$routeParams.index].items[$routeParams.index]);
-      console.log(ctrl.list[$routeParams.index].items[$routeParams.index].stores);
+      // console.log(ctrl.list[$routeParams.index].items[$routeParams.index].stores);
 
 
 
