@@ -12,7 +12,7 @@
             <md-list-item  ng-repeat="items in $ctrl.listItems" ng-repeat="store in $ctrl.storeList " >
 
                     <h3 flex="50">{{items.itemName}}<h3>
-                      <h3>{{items.stores.storeNames}}</h3>
+                      <h3 flex="20">{{items.stores.storeName}}</h3>
                     <h3 flex="20">${{items.itemPrice}}</h3>
                     <md-divider></md-divider>
             </md-list-item>

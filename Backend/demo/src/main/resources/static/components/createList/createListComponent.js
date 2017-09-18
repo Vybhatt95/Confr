@@ -5,7 +5,7 @@ app.component('createlistSw', {
     controller: createListController
 })
 
-function createListController($http, ItemService, ListService){
+function createListController($http, ItemService, ListService, $location){
       var ctrl = this;
 
       ctrl.newPrice = 0.00;
@@ -110,6 +110,7 @@ function createListController($http, ItemService, ListService){
             if(response.data){
               console.log(response.data)
               ListService.addList(ctrl.data);
+
             }
             else{
               console.log("bad errros")
