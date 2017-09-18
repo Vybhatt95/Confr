@@ -16,10 +16,10 @@ function ListDetailController(ListService,ItemService, $routeParams){
 
     ctrl.listItems = ctrl.list[$routeParams.index].items;
 
+    ctrl.getTotalPrice = ctrl.list[$routeParams.index].listTotal;
 
 
-
-
+      console.log(ctrl.list[$routeParams.index].listTotal);
       console.log(ctrl.list[$routeParams.index].items);
       console.log(ctrl.list[$routeParams.index].items[$routeParams.index]);
       // console.log(ctrl.list[$routeParams.index].items[$routeParams.index].stores);
