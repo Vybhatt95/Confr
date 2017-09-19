@@ -8,12 +8,23 @@
   background-blend-mode: multiply; }
 
 #Header {
-  background: linear-gradient(to right, #92C24C, #FFEEA8);
-  font-family: 'Allerta Stencil', sans-serif; }
+  background: linear-gradient(to right, #92C24C, #FFEEA8); }
   #Header h1 {
     color: #FFFADD;
     font-size: 87px;
-    margin: 0; }
+    margin: 0;
+    font-family: 'Allerta Stencil', sans-serif; }
+  #Header h5 {
+    color: #FFFADD;
+    margin-left: 5%;
+    margin-bottom: 11px;
+    font-size: 20px;
+    font-family: 'Gloria Hallelujah', cursive; }
+  #Header img {
+    height: 51px;
+    width: 51px;
+    margin-bottom: 28px;
+    margin-left: 5px; }
 
 #LoginPanel {
   margin-top: 10%;

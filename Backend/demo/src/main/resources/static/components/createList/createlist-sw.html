@@ -24,13 +24,19 @@
                     <md-list-item>
 
                       <h3>
-                        <select ng-model="$ctrl.itemID" ng-change="$ctrl.hasChanged($ctrl.itemID)">
-                          <option  ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
-                        </select>
+                        <div layout="row" layout-align="start start">
+                          <label>Pick an Item: </label>
+                          <select ng-model="$ctrl.itemID" ng-change="$ctrl.hasChanged($ctrl.itemID)">
+                            <option  ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
+                          </select>
+                        </div>
 
-                        <select ng-model="$ctrl.storeID" >
-                          <option ng-value="store" ng-repeat="store in $ctrl.priceStore">{{store.storeName}} : {{store.itemPrice}} </option>
-                        </select>
+                        <div layout="row" layout-align="start start">
+                          <label>Pick a Store: </label>
+                          <select ng-model="$ctrl.storeID" >
+                              <option ng-value="store" ng-repeat="store in $ctrl.priceStore">Pick a Store: {{store.storeName}} : {{store.itemPrice}} </option>
+                            </select>
+                        </div>
                       </h3>
 
 
