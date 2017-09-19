@@ -9,26 +9,34 @@
     </md-toolbar>
     <md-content layout="row" class="raleway">
         <md-list flex>
-            <md-list-item  ng-repeat="items in $ctrl.listItems" ng-repeat="store in $ctrl.storeList " >
 
-                    <h3 flex="50">{{items.itemName}}<h3>
+
+            <md-list-item    ng-repeat="items in $ctrl.listItems" ng-click="selection.selectedNode = item"  ng-repeat="store in $ctrl.storeList " >
+
+                    <h3 flex="50" >{{items.itemName}}<h3>
                       <h3 flex="20">{{items.stores.storeName}}</h3>
                     <h3 flex="20">${{items.itemPrice}}</h3>
+
                     <md-divider></md-divider>
             </md-list-item>
 
-
         <md-list-item >
-          <h3 flex="50">
-            <input list="browsers" name="browser" ng-model="$ctrl.val" class="input" placeholder="Search Item">
-            <datalist id="browsers"  >
-              <option ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
-            </datalist>
+          <h3>
+            <select ng-model="$ctrl.itemID" ng-change="$ctrl.hasChanged($ctrl.itemID)">
+              <option  ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
+            </select>
+
+            <select ng-model="$ctrl.storeID" >
+              <option ng-value="store" ng-repeat="store in $ctrl.priceStore">{{store.storeName}} : {{store.itemPrice}} </option>
+            </select>
           </h3>
           <h4 class="totalCss">TOTAL: {{$ctrl.getTotalPrice}}</h4>
-          <md-list-item flex="50"><button class="md-raised md-button yellow">+ Add New Item</button></md-list-item>
+          </md-list-item>
+
+          <md-list-item><button class="md-raised md-button yellow" ng-click="$ctrl.addItem($ctrl.itemID, $ctrl.storeID, $ctrl.listName); $ctrl.getTotal()">+ Add New Item</button>
 
           </md-list-item>
+
         </md-list>
     </md-content>
 
