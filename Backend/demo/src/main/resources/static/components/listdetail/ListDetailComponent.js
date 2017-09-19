@@ -113,5 +113,18 @@ function ListDetailController(ListService,ItemService, $routeParams, $http){
 
       }
 
+    ctrl.checkedBA = "checked::before";
+      ctrl.checked = function(){
+        console.log(ctrl.checkedBA);
+        ctrl.checkedBA = "checked";
+        console.log(ctrl.checkedBA);
+      }
+
+      ctrl.toggleBtn = function (tube) {
+    tube.toggled = !tube.toggled;
+  }
+
+
+
 
 }
