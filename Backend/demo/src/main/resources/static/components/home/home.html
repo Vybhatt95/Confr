@@ -82,7 +82,7 @@
   <div ng-switch="$ctrl.pages">
 
     <div ng-switch-when="createList">
-      <createlist-sw></createlist-sw>
+      <createlist-sw on-save-list="$ctrl.goto('page1')"></createlist-sw>
     </div>
 
 

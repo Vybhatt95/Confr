@@ -2,7 +2,10 @@ var app = angular.module('app');
 
 app.component('createlistSw', {
     templateUrl: 'components/createList/createlist-sw.html',
-    controller: createListController
+    controller: createListController,
+    bindings: {
+      onSaveList: "&"
+    }
 })
 
 function createListController($http, ItemService, ListService, $location){
@@ -47,7 +50,7 @@ function createListController($http, ItemService, ListService, $location){
         console.log(itemID);
           ctrl.priceStore=[];
         for(var i =0; i<ctrl.storeList.length; i++){
-        ctrl.priceStore.push({"storeName": ctrl.storeList[i], "itemPrice" : ItemService.getPrice(itemID, ctrl.storeList[i])} );
+          ctrl.priceStore.push({"storeName": ctrl.storeList[i], "itemPrice" : ItemService.getPrice(itemID, ctrl.storeList[i])} );
 
         }
 
@@ -84,9 +87,10 @@ function createListController($http, ItemService, ListService, $location){
         ctrl.getTotal = function(){
         ctrl.getTotalPrice = 0;
         for(var i=0; i<ctrl.products.length;i++){
-            ctrl.getTotalPrice+= ctrl.products[i].itemPrice;
+            ctrl.getTotalPrice += ctrl.products[i].itemPrice;
 
         }
+        ctrl.getTotalPrice = Math.round((ctrl.getTotalPrice*100))/100;
         console.log(ctrl.getTotalPrice);
       }
 
@@ -110,7 +114,7 @@ function createListController($http, ItemService, ListService, $location){
             if(response.data){
               console.log(response.data)
               ListService.addList(ctrl.data);
-
+              ctrl.onSaveList();
             }
             else{
               console.log("bad errros")

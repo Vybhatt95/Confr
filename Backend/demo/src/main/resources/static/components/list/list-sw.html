@@ -10,7 +10,7 @@
                 <md-list-item id="eachItem" ng-model="$index" ng-repeat="list in $ctrl.list" >
                     <!-- <div layout="row"> -->
                         <h3 flex="50">{{list.listName}}<h3>
-                        <h4 flex="25">{{list.listTotal}}</h4>
+                        <h4 flex="25">${{list.listTotal}}</h4>
                         <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.getCompleteList(list, $index)">Details</button>
                         <button class="md-raised md-button yellow" flex="10" ng-click="$ctrl.removeList(list)">Remove</button>
                         <md-divider ></md-divider>
