@@ -2,6 +2,7 @@
 .btn-on {
   color: red;
     text-decoration: line-through;
+    line-height: 1em;
 }
 .btn-off {
   color: black;

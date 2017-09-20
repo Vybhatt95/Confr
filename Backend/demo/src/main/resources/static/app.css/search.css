@@ -1,7 +1,7 @@
 #searchComp {
-    width:auto;
-    height:auto;
-    background-color: #FCD949;
+
+    padding: 50px;
+    background-color: white;
 }
 
 #search, #update {
@@ -26,4 +26,15 @@ span {
 .symbol {
     border: 1px inset #000000;
     background-color: #FFFFFF;
+}
+
+.divbody{
+  padding: 50px;
+  background-color: #FCD949;
+}
+
+.buttonCenter{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
