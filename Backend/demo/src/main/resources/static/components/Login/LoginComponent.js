@@ -20,7 +20,8 @@ function LoginController($http, $location, UserService, ListService) {
                 if(response.data != null){
                   console.log(response.data);
                   UserService.storeUser(response.data);
-                  ListService.lists = response.data.lists
+                  ListService.lists = response.data.lists;
+                  console.log(ListService.lists);
                   $location.path('/home');
                 }
                 else{

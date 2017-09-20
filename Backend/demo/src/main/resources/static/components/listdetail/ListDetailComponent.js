@@ -98,6 +98,8 @@ function ListDetailController(ListService,ItemService, $routeParams, $http){
           //update the total
 
           ctrl.getTotalPrice += storeID.itemPrice;
+          ctrl.getTotalPrice = Math.round((ctrl.getTotalPrice * 100))/100
+          console.log(ctrl.getTotalPrice);
           $http.post('http://localhost:8080/lists/additem',JSON.stringify(ctrl.item))
                 .then(function(response){
                   if(response.data){

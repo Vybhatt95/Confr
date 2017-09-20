@@ -15,12 +15,27 @@ $color5: #FCD949;
 
 #Header {
     background: linear-gradient(to right, $color2 , $color4);
-    font-family: 'Allerta Stencil', sans-serif;
 
     h1 {
         color: $color3;
         font-size: 87px;
         margin: 0;
+        font-family: 'Allerta Stencil', sans-serif;
+    }
+
+    h5 {
+        color: $color3;
+        margin-left: 5%;
+        margin-bottom: 11px;
+        font-size: 20px;
+        font-family: 'Gloria Hallelujah', cursive;
+    }
+
+    img {
+        height: 40px;
+        width: 30px;
+        margin-bottom: 28px;
+        margin-left: 5px;
     }
 }
 
