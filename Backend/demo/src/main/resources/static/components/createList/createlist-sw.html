@@ -30,11 +30,13 @@
                             <option  ng-value="item" ng-repeat="item in $ctrl.itemList">{{item}}</option>
                           </select>
                         </div>
+                          <br />
+                          <br />
 
                         <div layout="row" layout-align="start start">
                           <label>Pick a Store: </label>
                           <select ng-model="$ctrl.storeID" >
-                              <option ng-value="store" ng-repeat="store in $ctrl.priceStore">Pick a Store: {{store.storeName}} : {{store.itemPrice}} </option>
+                              <option ng-value="store" ng-repeat="store in $ctrl.priceStore"> {{store.storeName}} : {{store.itemPrice}} </option>
                             </select>
                         </div>
                       </h3>
