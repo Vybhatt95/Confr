@@ -16,16 +16,15 @@
  <md-content layout-padding="">
 
  <md-list layout="column" layout-align="start start">
-   <md-subheader class="md-no-sticky">Favorites</md-subheader>
    <md-list-item>
-     <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
+     <md-icon class="md-default-theme" class="material-icons">&#xE87C;</md-icon>
      <p>{{$ctrl.currentUser.firstName}} {{$ctrl.currentUser.lastName}}</p>
-     <div class="md-secondary">2</div>
+     <!-- <div class="md-secondary">2</div> -->
    </md-list-item>
    <md-list-item>
-     <md-icon class="md-default-theme" class="material-icons">&#xE0C9;</md-icon>
+     <md-icon class="md-default-theme" class="material-icons">&#xE0BE;</md-icon>
      <p>{{$ctrl.currentUser.email}}</p>
-     <div class="md-secondary">2</div>
+     <!-- <div class="md-secondary">2</div> -->
    </md-list-item>
    <md-list-item>
     <md-icon class="md-default-theme" class="material-icons">&#xE899;</md-icon>
@@ -94,6 +93,7 @@
     <div ng-switch-when="search">
     <search-sw></search-sw>
     </div>
+
     <div ng-switch-default>
        <list-sw on-add-list="$ctrl.goto('createList')"></list-sw>
     </div>
