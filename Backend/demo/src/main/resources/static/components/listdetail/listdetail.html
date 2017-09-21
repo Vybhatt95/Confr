@@ -38,7 +38,7 @@
               <option ng-value="store" ng-repeat="store in $ctrl.priceStore">{{store.storeName}} : {{store.itemPrice}} </option>
             </select>
           </h3>
-          <h4 class="totalCss">TOTAL: {{$ctrl.getTotalPrice}}</h4>
+          <h4 class="totalCss">TOTAL: ${{$ctrl.getTotalPrice}}</h4>
           </md-list-item>
 
           <md-list-item><button class="md-raised md-button yellow" ng-click="$ctrl.addItem($ctrl.itemID, $ctrl.storeID, $ctrl.listName); $ctrl.getTotal()">+ Add New Item</button>

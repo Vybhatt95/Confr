@@ -174,7 +174,7 @@ public class ListsController {
 
         ArrayNode arrayNode = mapper.createArrayNode();
         ObjectNode objectNode = mapper.createObjectNode();
-        objectNode.put("label","Users Average");
+        objectNode.put("label","Your Average");
         objectNode.put("value",ua.toString());
 
         ObjectNode objectNode1 = mapper.createObjectNode();
